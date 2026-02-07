@@ -6,9 +6,7 @@ AUTHOR ~Ajoc~
 
 README ~AjocMod/AjocMod-Readme.txt~	~AjocMod/AjocMod-Readme_%LANGUAGE%.txt~
 
-VERSION ~v1.6.5~
-
-// README ~AjocMod/AjocMod-Readme.txt~
+VERSION ~v1.7~
 
 ALWAYS
 
@@ -57,7 +55,7 @@ ALWAYS
 	END
 END
 
-AUTO_TRA ~weidu_external/AjocMod/Languages/%s~
+AUTO_TRA ~weidu_external/AjocMod/Languages/autotra/%s~
 
 LANGUAGE ~English~
          ~english~
@@ -510,7 +508,7 @@ COPY ~%MOD_FOLDER%/PVRZ.EE~ ~override~
 
 END
 
-// This function expects tisunpack for Windows to be located in mymod/tiz/win32// BG2 BGT
+// This function expects tisunpack for Windows to be located in mymod/.../win32
 
 ACTION_IF (GAME_IS ~tob bgt~) BEGIN
 

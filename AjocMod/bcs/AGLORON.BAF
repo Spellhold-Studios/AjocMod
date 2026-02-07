@@ -73,9 +73,9 @@ END
 IF
 	Global("AGBanditsDead","GLOBAL",6)
 THEN
-	RESPONSE #100)
+	RESPONSE #100
 		SetGlobal("AGBanditsDead","GLOBAL",7)
-		MoveToObject(Player1
+		MoveToObject(Player1)
 END
 
 IF

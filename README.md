@@ -4,7 +4,7 @@
 [![Platform](https://img.shields.io/badge/platform-Windows%20%a0%20macOS%20%a0%20Linux%20%a0%20Project%20Infinity-%2392403a)](https://github.com/Spellhold-Studios/AjocMod/releases)
 
 [![Games](https://img.shields.io/badge/games-BG2%20%a0%20BGT%20%a0%20BG2%3AEE%20%a0%20EET-%2392403a)](https://github.com/Spellhold-Studios/AjocMod/releases)
-[![Language](https://img.shields.io/badge/language-english-%2392403a)](https://github.com/Spellhold-Studios/AjocMod/releases)
+[![Language](https://img.shields.io/badge/language-english%20%a0%20italian%20%a0%20spanish%20%a0%20russian%20%a0%20german-%2392403a)](https://github.com/Spellhold-Studios/AjocMod/releases)
 
 <!--
 Badges white space separator: %20%a0%20
@@ -57,12 +57,10 @@ Follow the prompt
 
 <!-- double space after each credits **Heading** if you don't need lists -->
 
-**Author**  
-
-- Ajoc
+**Author**  : **Ajoc**
 
 
-- to hlidskialf
+- hlidskialf
 - Special Thanks to Lee Watts who did some base mod and weidu tweaks to improve the mod.
 
 - PO AND MINTO, obviously
