@@ -1,5 +1,5 @@
 IF
-	Heard([ANYONE],INCOMING_111)
+	Heard([ANYONE],111)
 THEN
 	RESPONSE #100
 		MoveToObject(NearestEnemyOf(Myself))

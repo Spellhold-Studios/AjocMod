@@ -6,7 +6,7 @@ THEN
 	RESPONSE #100
 		Spell(NearestEnemyOf(Myself),WIZARD_MAGIC_MISSILE)
 		SetGlobal("MagicMissile","LOCALS",1)
-		SetGlobalTimer("MagicMissile1","LOCALS",FIVE_ROUNDS)
+		SetGlobalTimer("MagicMissile1","LOCALS",30)
 END
 
 IF
@@ -23,7 +23,7 @@ IF
 	See(NearestEnemyOf(Myself))
 THEN
 	RESPONSE #100
-		SetGlobalTimer("MagicMissile1","LOCALS",FIVE_ROUNDS)
+		SetGlobalTimer("MagicMissile1","LOCALS",30)
 		Spell(NearestEnemyOf(Myself),WIZARD_MAGIC_MISSILE)
 END
 

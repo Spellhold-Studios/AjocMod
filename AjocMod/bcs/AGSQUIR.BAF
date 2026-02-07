@@ -1,6 +1,6 @@
 IF
 	Global("AGSquirrelQuest","GLOBAL",9)
-	Heard([ANYONE],INCOMING_111)
+	Heard([ANYONE],111)
 THEN
 	RESPONSE #100
 		MoveToObject(NearestEnemyOf(Myself))
@@ -48,9 +48,17 @@ END
 
 IF
 	Global("AGSquirrelQuest","GLOBAL",9)
+	!Allegiance(Myself,ENEMY)
 THEN
 	RESPONSE #100
 		Attack(Player1)
 		Enemy()
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		AttackReevaluate(NearestEnemyOf(Myself),30)
 END
 

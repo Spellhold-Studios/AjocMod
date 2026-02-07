@@ -17,13 +17,13 @@ THEN
 END
 
 IF
-	Global("OCALSoakfisthurt","",0)
+	Global("oakfisthurt","LOCALS",0)
 	See(NearestEnemyOf(Myself))
 	Range(NearestEnemyOf(Myself),3)
 	HPPercentLT(Myself,49)
 THEN
 	RESPONSE #100
 		RunAwayFrom(NearestEnemyOf(Myself),30)
-		SetGlobal("OCALSoakfisthurt","",1)
+		SetGlobal("oakfisthurt","LOCALS",1)
 END
 
