@@ -6,9 +6,24 @@ AUTHOR ~See_The_Readme~
 
 VERSION ~v1.6.5~
 
-README ~AjocMod/AjocMod-Readme.txt~
+// README ~AjocMod/AjocMod-Readme.txt~
 
 AUTO_TRA ~AjocMod/Languages/%s~
+
+ALWAYS
+  // Convert strings to UTF-8 for Enhanced Edition
+
+  // setup.tra needs to be reloaded after conversion
+  ACTION_DEFINE_ARRAY va#reload BEGIN setup END
+
+  LAF HANDLE_CHARSETS // recursively converts all tra files found in tra_path
+    INT_VAR
+      infer_charsets = 1
+    STR_VAR
+      tra_path = EVAL ~%MOD_FOLDER%/languages~
+      reload_array = va#reload
+  END
+END
 
 LANGUAGE ~English~
          ~english~
@@ -419,6 +434,8 @@ EXTEND_TOP ~AR1002.bcs~~AjocMod/snip/sAR1002.baf~
 //				                                       //
 /////////////////////////////////////////////////////////////////////////
 
-COPY ~AjocMod\installer.bat~ ~AjocMod_Installer.bat~
-AT_INTERACTIVE_EXIT ~AjocMod_Installer.bat~
-AT_INTERACTIVE_UNINSTALL ~AjocMod\Uninstaller.bat~
+LAF HANDLE_TILESETS END // This function expects tisunpack for Windows to be located in mymod/tiz/win32
+
+// COPY ~AjocMod\installer.bat~ ~AjocMod_Installer.bat~
+// AT_INTERACTIVE_EXIT ~AjocMod_Installer.bat~
+// AT_INTERACTIVE_UNINSTALL ~AjocMod\Uninstaller.bat~
