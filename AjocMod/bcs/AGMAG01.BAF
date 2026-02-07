@@ -4,8 +4,8 @@ THEN
 	RESPONSE #100
 		ForceSpell(Myself,DRYAD_TELEPORT)
 		Wait(1)
-		DestroySelf()
 		SetGlobal("Anarchy","AG1700",2)
+		DestroySelf()
 END
 
 IF

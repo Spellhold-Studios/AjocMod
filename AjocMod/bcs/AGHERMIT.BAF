@@ -14,7 +14,7 @@ IF
 THEN
 	RESPONSE #100
 		SetGlobal("AGSquirrelQuest","GLOBAL",2)
-		StartDialogueNoSet([PC])
 		SetGlobal("NukeSquirrel","GLOBAL",1)
+		StartDialogueNoSet([PC])
 END
 

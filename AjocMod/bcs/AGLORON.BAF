@@ -21,8 +21,8 @@ IF
 	Allegiance(Myself,NEUTRAL)
 THEN
 	RESPONSE #100
-		EscapeArea()
 		SetGlobal("AGLoronAttack","GLOBAL",1)
+		EscapeArea()
 END
 
 IF
@@ -30,8 +30,8 @@ IF
 	Allegiance(Myself,NEUTRAL)
 THEN
 	RESPONSE #100
-		EscapeArea()
 		SetGlobal("AGLoronAttack","GLOBAL",1)
+		EscapeArea()
 END
 
 IF
@@ -39,8 +39,8 @@ IF
 	Allegiance(Myself,NEUTRAL)
 THEN
 	RESPONSE #100
-		EscapeArea()
 		SetGlobal("AGLoronAttack","GLOBAL",1)
+		EscapeArea()
 END
 
 IF
@@ -48,8 +48,8 @@ IF
 	Allegiance(Myself,NEUTRAL)
 THEN
 	RESPONSE #100
-		EscapeArea()
 		SetGlobal("AGLoronAttack","GLOBAL",1)
+		EscapeArea()
 END
 
 IF
@@ -57,8 +57,8 @@ IF
 	Allegiance(Myself,NEUTRAL)
 THEN
 	RESPONSE #100
-		EscapeArea()
 		SetGlobal("AGLoronAttack","GLOBAL",1)
+		EscapeArea()
 END
 
 IF
@@ -66,16 +66,16 @@ IF
 	Allegiance(Myself,NEUTRAL)
 THEN
 	RESPONSE #100
-		EscapeArea()
 		SetGlobal("AGLoronAttack","GLOBAL",1)
+		EscapeArea()
 END
 
 IF
 	Global("AGBanditsDead","GLOBAL",6)
 THEN
-	RESPONSE #100
-		MoveToObject(Player1)
+	RESPONSE #100)
 		SetGlobal("AGBanditsDead","GLOBAL",7)
+		MoveToObject(Player1
 END
 
 IF
@@ -84,8 +84,8 @@ IF
 	Global("AGBanditsDead","GLOBAL",7)
 THEN
 	RESPONSE #100
-		StartDialogueNoSet([PC])
 		SetGlobal("AGRunAway","GLOBAL",0)
+		StartDialogueNoSet([PC])
 END
 
 IF

@@ -4,8 +4,8 @@ IF
 	Global("TALKTIME","LOCALS",0)
 THEN
 	RESPONSE #100
-		StartDialogueNoSet([PC])
 		SetGlobal("TALKTIME","LOCALS",1)
+		StartDialogueNoSet([PC])
 END
 
 IF

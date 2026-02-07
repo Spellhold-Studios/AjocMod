@@ -16,7 +16,6 @@ THEN
 END
 
 IF
-	Global("AGSquirrelQuest","GLOBAL",9)
 	See(NearestEnemyOf(Myself))
 THEN
 	RESPONSE #100
@@ -55,10 +54,4 @@ THEN
 		Enemy()
 END
 
-IF
-	See(NearestEnemyOf(Myself))
-THEN
-	RESPONSE #100
-		AttackReevaluate(NearestEnemyOf(Myself),30)
-END
 

@@ -16,8 +16,8 @@ THEN
 		Wait(1)
 		ForceSpell("agbadguy",DRYAD_TELEPORT)
 		Wait(1)
-		DestroySelf()
 		EndCutSceneMode()
+		DestroySelf()
 END
 
 IF

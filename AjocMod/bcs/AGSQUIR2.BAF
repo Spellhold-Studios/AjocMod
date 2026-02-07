@@ -22,7 +22,7 @@ IF
 	Global("NukeSquirrel","GLOBAL",1)
 THEN
 	RESPONSE #100
-		DestroySelf()
 		SetGlobal("SquirrelFollow","GLOBAL",0)
+		DestroySelf()
 END
 
