@@ -22,6 +22,7 @@
 @21   = ~This Amulet was picked up off a Bandit in the woods. It seems to improve a rogue's skills and abilities.
 
 STATISTICS:
+
 +1 to Armor Class
 +5%  to Find Traps
 Cast Knock once a day.
@@ -204,7 +205,7 @@ Weight:  2~
 @50   = ~This is a small stone that floats in an orbit around the owner's head.  Simply equip the stone to set it in its orbit.  These obviously magical stones have different properties depending on their color.~
 @51   = ~Ioun Stone of Lore: Forged carefully for the barbarian Maerik, this stone, when worn, allows the wearer to have the lore of a thousand bards. Maerik was fed up of not understanding what his ancient treasures did, and he didn't dare part with his money for it to be indentified else where. Sadly, Maerik went missing soon after it was made and he is assumed to be living in a large house, in the region of Waterdeep. No one has bothered to check yet.
 
-STATISTICS
+STATISTICS:
 
 Equipped Abilities: 
 +150 to Lore
@@ -261,6 +262,9 @@ Not Usable By:
  Thief~
 @61   = ~War Hammer +3: This enchanced Hammer is wielded by most Oak Fist Dwarves you have met, and packs quite a punch.
 
+STATISTICS:
+
+THAC0: +3
 Damage:  1D4 + 4
 Damage type:  Crushing
 Weight: 5
@@ -277,8 +281,9 @@ Not Usable By:
 
 STATISTICS:
 
+THAC0: +4
 Damage:  1D4 + 5
-Special: ID4 Crushing damage upon wielder upon hit.
+Special: 1D4 Crushing damage upon wielder upon hit.
 +1 to THAC0 for 3 seconds upon hit.
 Damage type:  Crushing
 Weight: 14
@@ -293,16 +298,16 @@ Not Usable By:
 @64   = ~Ring~
 @65   = ~Ring of the Companions~
 @66   = ~A ring is a small band of precious metal that is used as jewelry.  Some rare rings have had enchantments placed upon them that confer various magical abilities.  These rings are highly sought after, especially by those of the adventuring profession.~
-@67   = ~Ring of the Companions: Items like these were made to train Adventurers against against foes, by improving the enemies in direct sight and also improving the party's resistance. Many are not sure what to think of such items, as they give bonuses to both monster and hero.
+@67   = ~Ring of the Companions: Items like these were made to train Adventurers against foes, by improving the enemies in direct sight and also improving the party's resistance. Many are not sure what to think of such items, as they give bonuses to both monster and hero.
 
-STATISTICS
+STATISTICS:
 
 +1 to all Saving Throws of all party members.
 +12 to all non-party members hit points.~
 @68   = ~Greater Ring of the Companions~
-@69   = ~Greater Ring of the Companions: Items like these were made to train Adventurers against against foes, by improving the enemies in direct sight and also improving the party's resistance. Many are not sure what to think of such items, as they give bonuses to both monster and hero.
+@69   = ~Greater Ring of the Companions: Items like these were made to train Adventurers against foes, by improving the enemies in direct sight and also improving the party's resistance. Many are not sure what to think of such items, as they give bonuses to both monster and hero.
 
-STATISTICS
+STATISTICS:
 
 +3 to all damage of all party members.
 +2 THAC0 bonus to all party members.

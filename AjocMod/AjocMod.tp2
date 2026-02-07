@@ -366,11 +366,33 @@ COPY ~AjocMod/itm/AGRING02.ITM~     ~override/AGRING02.ITM~
   SAY UNIDENTIFIED_DESC @66
   SAY DESC @67
 
+COPY ~AjocMod/spl/agrin002.SPL~      ~override~
+  SAY NAME1 ~~
+  SAY UNIDENTIFIED_DESC ~~
+
+COPY ~AjocMod/spl/agrin102.SPL~      ~override~
+  SAY NAME1 ~~
+  SAY UNIDENTIFIED_DESC ~~
+
+COPY ~AjocMod/eff/AGRING02.eff~      ~override~
+  SAY NAME1 ~~
+
 COPY ~AjocMod/itm/AGRING03.ITM~     ~override/AGRING03.ITM~
   SAY NAME1 @64
   SAY NAME2 @68
   SAY UNIDENTIFIED_DESC @66
   SAY DESC @69
+
+COPY ~AjocMod/spl/agrin003.SPL~      ~override~
+  SAY NAME1 ~~
+  SAY UNIDENTIFIED_DESC ~~
+
+COPY ~AjocMod/spl/agrin103.SPL~      ~override~
+  SAY NAME1 ~~
+  SAY UNIDENTIFIED_DESC ~~
+
+COPY ~AjocMod/eff/AGRING03.eff~      ~override~
+  SAY NAME1 ~~
 
 COPY ~AjocMod/itm/AGRING04.ITM~     ~override/AGRING04.ITM~
   SAY NAME1 @64
