@@ -1,0 +1,36 @@
+IF
+	Global("AGVillageHeld","GLOBAL",2)
+THEN
+	RESPONSE #100
+		SetGlobal("AGVillageHeld","GLOBAL",3)
+		StartDialogueNoSet([PC])
+END
+
+IF
+	Global("AGCaveVisit","GLOBAL",1)
+THEN
+	RESPONSE #100
+		SetGlobal("AGCaveVisit","GLOBAL",2)
+		StartDialogueNoSet([PC])
+END
+
+IF
+	Global("AGVillageHeld","GLOBAL",1)
+THEN
+	RESPONSE #100
+		ForceSpell(Myself,AJOC_FREEZE_GLOBAL)
+		ActionOverride("agmag01",ForceSpell(Myself,AJOC_FREEZE_GLOBAL))
+		ActionOverride("agmag02",ForceSpell(Myself,AJOC_FREEZE_GLOBAL))
+		ActionOverride("agmag03",ForceSpell(Myself,AJOC_FREEZE_GLOBAL))
+		ActionOverride("agmag04",ForceSpell(Myself,AJOC_FREEZE_GLOBAL))
+		SetGlobal("AGVillageHeld","GLOBAL",4)
+END
+
+IF
+	Global("AGVillageHeld","GLOBAL",4)
+THEN
+	RESPONSE #100
+		SetGlobal("AGVillageHeld","GLOBAL",4)
+		StartDialogueNoSet([PC])
+END
+

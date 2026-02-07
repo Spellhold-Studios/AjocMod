@@ -1,0 +1,10 @@
+IF
+	See([PC])
+	Range([PC],30)
+	Global("Talk","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("Talk","LOCALS",1)
+		StartDialogueNoSet([PC])
+END
+
