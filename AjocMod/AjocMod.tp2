@@ -490,12 +490,6 @@ EXTEND_TOP ~AR1002.bcs~~AjocMod/snip/sAR1002.baf~
 
 ACTION_IF (GAME_IS ~bg2ee eet~) BEGIN
 
-COPY ~%MOD_FOLDER%/TIS.EE~ ~override~
-COPY ~%MOD_FOLDER%/PVRZ.EE~ ~override~
-
-
-//////////////// Faster install for test temporary commented out ////////////////////////
-/*
 	// Install pvrz-based tilesets without the danger of overwriting pvrz files from other mods or the game itself.
 
 		INCLUDE ~AjocMod/lib/a7_pvrz_tis.tpa~
@@ -526,7 +520,6 @@ COPY ~%MOD_FOLDER%/PVRZ.EE~ ~override~
       FAIL ~Could not install "%BASH_FOR_FILESPEC%"!~
     END
   END
-*/
 
 END
 
