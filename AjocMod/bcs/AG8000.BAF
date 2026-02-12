@@ -1,27 +1,28 @@
 IF
-	Global("AG8000FirstVisit","AG8000",0)
+	Global("AG_8000FirstVisit","MYAREA",0)
 THEN
 	RESPONSE #100
+		SetGlobal("AG_8000FirstVisit","MYAREA",1)
 		CreateCreature("AGDEANO",[1479.1366],6) // Deano
 		CreateCreature("AGDEIMOS",[994.1475],6) // Deimos
 		CreateCreature("AGBOSS",[1566.1796],0) // Corpae
-		SetGlobal("AG8000FirstVisit","AG8000",1)
 END
 
 IF
-	Global("AG8000FirstVisit","AG8000",1)
+	Global("AG_8000FirstVisit","MYAREA",2)
 THEN
 	RESPONSE #100
 		ActionOverride("agdeano",MoveToPoint([1000.1532]))
-		SetGlobal("AG8000FirstVisit","AG8000",2)
+		SetGlobal("AG_8000FirstVisit","MYAREA",3)
 END
 
 IF
-	Global("deimos2","AG8000",1)
+	Global("deimos2","MYAREA",1)
 THEN
 	RESPONSE #100
+		SmallWait(5)
 		CreateCreature("AGGRIEV",[994.1475],6) // Griever
-		SetGlobal("deimos2","AG8000",2)
+		SetGlobal("deimos2","MYAREA",2)
 END
 
 IF
@@ -33,14 +34,16 @@ THEN
 END
 
 IF
-	Global("bosstime","AG8000",1)
+	Global("bosstime","MYAREA",1)
+	!InMyArea("AGDEANO")
 THEN
 	RESPONSE #100
+		SetGlobal("bosstime","MYAREA",2)
 		StartCutSceneMode()
 		StartCutScene("agbossgo")
-		SetGlobal("bosstime","AG8000",2)
 END
 
+/*
 IF
 	Dead("AGBOSS")
 	Global("CorpaeDead","GLOBAL",0)
@@ -48,4 +51,5 @@ THEN
 	RESPONSE #100
 		SetGlobal("CorpaeDead","GLOBAL",1)
 END
+*/
 

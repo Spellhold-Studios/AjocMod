@@ -1,0 +1,21 @@
+IF
+	True()
+THEN
+	RESPONSE #100
+		CutSceneId("AGDEIMOS")
+		Explore()
+		ActionOverride(Player1,MoveToPoint([884.1409]))
+		ActionOverride(Player4,MoveToPoint([920.1354]))
+		ActionOverride(Player6,MoveToPoint([823.1524]))
+		ActionOverride(Player3,MoveToPoint([748.1456]))
+		ActionOverride(Player2,MoveToPoint([799.1351]))
+		ActionOverride(Player5,MoveToPoint([839.1307]))
+		Wait(1)
+		MoveToObjectNoInterrupt([PC])
+		EndCutSceneMode()
+		Wait(1)
+		TakePartyGold(2000)
+		MoveToPointNoInterrupt([994.1475])
+		Wait(1)
+		StartDialogueNoSet([PC])
+END

@@ -1,10 +1,11 @@
 IF
 	See([PC])
 	Range([PC],30)
-	Global("AG2000FirstVisit","GLOBAL",1)
+	Global("AG_Loron_Quest","GLOBAL",14)
+	Global("AG_AGOAKFIS","LOCALS",0)
 THEN
 	RESPONSE #100
-		SetGlobal("AG2000FirstVisit","GLOBAL",2)
+		SetGlobal("AG_AGOAKFIS","LOCALS",1)
 		StartDialogueNoSet([PC])
 END
 
@@ -17,13 +18,22 @@ THEN
 END
 
 IF
-	Global("oakfisthurt","LOCALS",0)
+	Global("AG_oakfisthurt","LOCALS",0)
 	See(NearestEnemyOf(Myself))
 	Range(NearestEnemyOf(Myself),3)
 	HPPercentLT(Myself,49)
 THEN
 	RESPONSE #100
 		RunAwayFrom(NearestEnemyOf(Myself),30)
-		SetGlobal("oakfisthurt","LOCALS",1)
+		SetGlobal("AG_oakfisthurt","LOCALS",1)
 END
 
+IF
+	OR(2)
+		Global("AG_AGOAK_enemy","MYAREA",1)
+		AttackedBy([GOODCUTOFF],DEFAULT)
+	!Allegiance(Myself,ENEMY)
+THEN
+	RESPONSE #100
+		Enemy()
+END

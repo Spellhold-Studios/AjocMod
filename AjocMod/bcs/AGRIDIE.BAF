@@ -3,13 +3,16 @@ IF
 THEN
 	RESPONSE #100
 		CutSceneId("agdeano")
-		ForceSpell("agdeimos",DO_NOTHING)
+		ReallyForceSpell("agdeimos",DO_NOTHING)
+		Wait(1)
+		CreateVisualEffectObject("SPTENSTT","agdeimos")
 		ActionOverride("agdeimos",Polymorph(KOBOLD_XVART))
-		DisplayStringHead("agdeano",18673) // And this should redeem you for all you have done?  I say it is a fitting punishment!
-		EndCutSceneMode()
-		ActionOverride("agdeimos",EscapeArea())
 		Wait(2)
-		SetGlobal("bosstime","AG8000",1)
+		ActionOverride("agdeimos",EscapeArea())
+		DisplayStringHead("agdeano",18673) // And this should redeem you for all you have done?  I say it is a fitting punishment!
+		Wait(2)
+		EndCutSceneMode()
+		SetGlobal("bosstime","MYAREA",1)
 		EscapeArea()
 END
 

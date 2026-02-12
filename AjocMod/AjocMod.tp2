@@ -23,6 +23,8 @@ ALWAYS
 	END
 */
 
+		INCLUDE ~AjocMod/lib/gw_functions.tpa~
+
   // Convert strings to UTF-8 for Enhanced Edition
 
   DEFINE_ACTION_FUNCTION autotra_workaround BEGIN
@@ -59,37 +61,58 @@ AUTO_TRA ~weidu_external/AjocMod/Languages/autotra/%s~
 
 LANGUAGE ~English~
          ~english~
+         ~AjocMod/languages/english/Journal.tra~
          ~AjocMod/languages/english/Setup.tra~
+         ~AjocMod/languages/english/items.tra~
 
 LANGUAGE ~Spanish (translation by Clan REO)~
          ~spanish~
+         ~AjocMod/languages/spanish/Journal.tra~
          ~AjocMod/languages/spanish/Setup.tra~
+         ~AjocMod/languages/spanish/items.tra~
 
-LANGUAGE ~Russian (translation by �த, Alex & AERIE.RU)~
+LANGUAGE ~Russian (translation by Vagrant, Alex & AERIE.RU)~
          ~russian~
+         ~AjocMod/languages/russian/Journal.tra~
          ~AjocMod/languages/russian/Setup.tra~
+//         ~AjocMod/languages/russian/items.tra~ // Included in setup.tra to avoid encodage issue
 
 LANGUAGE ~Deutsch (Uebersetzung von Rumpelstilz)~
          ~german~
+         ~AjocMod/languages/german/Journal.tra~
          ~AjocMod/languages/german/Setup.tra~
+         ~AjocMod/languages/german/items.tra~
 
 LANGUAGE ~Italian (translation by Ilot)~
          ~italian~
+         ~AjocMod/languages/italian/Journal.tra~
          ~AjocMod/languages/italian/Setup.tra~
+         ~AjocMod/languages/italian/items.tra~
 
 BEGIN @0 //Thanks to Lee Watts for the v1.5 mod fixes. - hlid.
 DESIGNATED 0
 LABEL ~Ajoc-Mod~
 REQUIRE_PREDICATE GAME_IS ~tob bg2ee eet bgt~ ~This mod need BG2, BG2EE, BGT or EET~
 
+/*
 // Ajoc's in script spells that are too much of a pain to track and SpellRes.
 // COPY_EXISTING ~SPELL.IDS~ ~Override/SPELL.IDS~
 APPEND ~SPELL.IDS~ ~2966 AJOC_FREEZE_GLOBAL~ UNLESS ~AJOC_FREEZE_GLOBAL~
 APPEND ~SPELL.IDS~ ~2967 AJOC_CORPAE_CURSE~ UNLESS ~AJOC_CORPAE_CURSE~
 APPEND ~SPELL.IDS~ ~2968 AJOC_PARTY_IMMOLATION~ UNLESS ~AJOC_PARTY_IMMOLATION~
+*/
+
+//
+ADD_JOURNAL TITLE (@1000) @1 @1002 @1003 @1004 @1005 @1006 @1007 // @51708 @1008
 
 COPY ~AjocMod/are~   ~override~ // Area Files
      ~AjocMod/Pics~   ~override~ // Mos and Bmp files
+
+COPY_EXISTING ~AG0042.are~ ~override/AG0042.are~
+	WRITE_ASCII 0x08 ~AR0042~
+
+/*
+No need to duplicate everything, just use original AR0042.tis/wed/...
 
 COPY_EXISTING ~AR0042.mos~ ~override/AG0042.mos~
 COPY_EXISTING ~AR0042HT.BMP~ ~override/AG0042HT.BMP~
@@ -98,21 +121,28 @@ COPY_EXISTING ~AR0042SR.BMP~ ~override/AG0042SR.BMP~
 COPY_EXISTING ~AR0042.wed~ ~override/AG0042.wed~
 	WRITE_ASCIIE 0x24 ~AG0042~ (8) // REPLACE_TEXTUALLY ~AR0042~ ~AG0042~
 COPY_EXISTING ~AR0042.tis~ ~override/AG0042.tis~
-// COPY_EXISTING ~AM0042.WAV~ ~override~
-// COPY_EXISTING ~AM0042A1.WAV~ ~override~
-// COPY_EXISTING ~AM0042A2.WAV~ ~override~
-// COPY_EXISTING ~AM0042A3.WAV~ ~override~
-// COPY_EXISTING ~AM0042A4.WAV~ ~override~
-// COPY_EXISTING ~AM0042N.WAV~ ~override~
-// COPY_EXISTING ~AM0042O1.WAV~ ~override~
-// COPY_EXISTING ~AM0042O2.WAV~ ~override~
-// COPY_EXISTING ~AM0042O3.WAV~ ~override~
+COPY_EXISTING ~AM0042.WAV~ ~override~
+COPY_EXISTING ~AM0042A1.WAV~ ~override~
+COPY_EXISTING ~AM0042A2.WAV~ ~override~
+COPY_EXISTING ~AM0042A3.WAV~ ~override~
+COPY_EXISTING ~AM0042A4.WAV~ ~override~
+COPY_EXISTING ~AM0042N.WAV~ ~override~
+COPY_EXISTING ~AM0042O1.WAV~ ~override~
+COPY_EXISTING ~AM0042O2.WAV~ ~override~
+COPY_EXISTING ~AM0042O3.WAV~ ~override~
+*/
 
 // Ajoc's Cre files
 
 COPY ~AjocMod/cre/AGOAKDW3.CRE~     ~override/AGOAKDW3.CRE~
   SAY NAME1@1
   SAY NAME2 @1
+	WRITE_BYTE 0x270 ~128~
+	WRITE_ASCII SCRIPT_OVERRIDE ~AGOAKDW~ (8)
+	WRITE_ASCII SCRIPT_CLASS ~PRIET12B~ (8)
+	WRITE_ASCII SCRIPT_RACE WTASIGHT (8)
+	WRITE_ASCII SCRIPT_GENERAL ~~ (8)
+	WRITE_ASCII SCRIPT_DEFAULT ~~ (8)
 
 COPY ~AjocMod/cre/agbadguy.cre~     ~override/agbadguy.cre~
   SAY NAME1 @2
@@ -145,18 +175,66 @@ COPY ~AjocMod/cre/agbandle.cre~     ~override/agbandle.cre~
 COPY ~AjocMod/cre/AGBMAGE1.CRE~     ~override/AGBMAGE1.CRE~
   SAY NAME1 @5
   SAY NAME2 @5
+	WRITE_ASCII DEATHVAR ~AGBMAGE1~ (32)
+	ADD_CRE_ITEM ~SW1H02~ #0 #0 #0 ~unstealable~ ~weapon1~ EQUIP
+	ADD_CRE_ITEM ~BLUN03~ #0 #0 #0 ~unstealable~ ~shield~
+	ADD_CRE_ITEM ~RNDTRE03~ #0 #0 #0 ~none~ ~inv~
+	SET_BG2_PROFICIENCY ~PROFICIENCY2WEAPON~ 2
+	SET_BG2_PROFICIENCY ~PROFICIENCYFLAILMORNINGSTAR~ 2
+	SET_BG2_PROFICIENCY ~PROFICIENCYBASTARDSWORD~ 2
+REMOVE_KNOWN_SPELL ~SPWI112~
+REMOVE_MEMORIZED_SPELL ~SPWI112~
+	ADD_KNOWN_SPELL ~SPWI112~ #0 ~wizard~
+	ADD_MEMORIZED_SPELL ~SPWI112~ #0 ~wizard~ ( 2 )
 
 COPY ~AjocMod/cre/AGBMAGE2.CRE~     ~override/AGBMAGE2.CRE~
   SAY NAME1 @5
   SAY NAME2 @5
+	WRITE_ASCII DEATHVAR ~AGBMAGE2~ (32)
+	ADD_CRE_ITEM ~AX1H02~ #0 #0 #0 ~unstealable~ ~weapon1~ EQUIP
+	ADD_CRE_ITEM ~SHLD02~ #0 #0 #0 ~unstealable~ ~shield~
+	ADD_CRE_ITEM ~RNDMAG03~ #0 #0 #0 ~none~ ~inv~
+	SET_BG2_PROFICIENCY ~PROFICIENCYSWORDANDSHIELD~ 2
+	SET_BG2_PROFICIENCY ~PROFICIENCYAXE~ 2
+REMOVE_KNOWN_SPELL ~SPWI112~
+REMOVE_MEMORIZED_SPELL ~SPWI112~
+	ADD_KNOWN_SPELL ~SPWI112~ #0 ~wizard~
+	ADD_MEMORIZED_SPELL ~SPWI112~ #0 ~wizard~ ( 2 )
 
 COPY ~AjocMod/cre/AGBMAGE3.CRE~     ~override/AGBMAGE3.CRE~
   SAY NAME1 @5
   SAY NAME2 @5
+	WRITE_ASCII DEATHVAR ~AGBMAGE3~ (32)
+	ADD_CRE_ITEM ~HALB02~ #0 #0 #0 ~unstealable~ ~weapon1~ EQUIP
+	ADD_CRE_ITEM ~RNDGEM03~ #0 #0 #0 ~none~ ~inv~
+	SET_BG2_PROFICIENCY ~PROFICIENCYHALBERD~ 2
+REMOVE_KNOWN_SPELL ~SPWI112~
+REMOVE_MEMORIZED_SPELL ~SPWI112~
+	ADD_KNOWN_SPELL ~SPWI112~ #0 ~wizard~
+	ADD_MEMORIZED_SPELL ~SPWI112~ #0 ~wizard~ ( 2 )
 
 COPY ~AjocMod/cre/AGBOSS.CRE~       ~override/AGBOSS.CRE~
   SAY NAME1 @2
   SAY NAME2 @2
+	WRITE_BYTE 0x234 ~14~
+	WRITE_BYTE 0x270 ~128~
+	WRITE_BYTE 0x273 ~1~
+	WRITE_ASCII SCRIPT_DEFAULT ~~ (8)
+	WRITE_ASCII DEATHVAR ~AGBOSS~ (32)
+REMOVE_KNOWN_SPELL ~SPWI212~ ~SPWI219~ ~SPWI609~ ~SPWI713~ ~AGWI968~ ~AGWI967~
+REMOVE_MEMORIZED_SPELL ~SPWI212~ ~SPWI219~ ~SPWI609~ ~SPWI713~ ~AGWI968~ ~AGWI967~
+	ADD_KNOWN_SPELL ~SPWI212~ #1 ~wizard~
+	ADD_KNOWN_SPELL ~SPWI219~ #1 ~wizard~
+	ADD_KNOWN_SPELL ~SPWI609~ #5 ~wizard~
+	ADD_KNOWN_SPELL ~SPWI713~ #6 ~wizard~
+	ADD_KNOWN_SPELL ~AGWI968~ #8 ~wizard~
+	ADD_KNOWN_SPELL ~AGWI967~ #8 ~wizard~
+	ADD_MEMORIZED_SPELL ~SPWI212~ #1 ~wizard~ ( 2 )
+	ADD_MEMORIZED_SPELL ~SPWI219~ #1 ~wizard~ ( 3 )
+	ADD_MEMORIZED_SPELL ~SPWI609~ #5 ~wizard~ ( 2 )
+	ADD_MEMORIZED_SPELL ~SPWI713~ #6 ~wizard~ ( 3 )
+	ADD_MEMORIZED_SPELL ~AGWI968~ #8 ~wizard~ ( 2 )
+	ADD_MEMORIZED_SPELL ~AGWI967~ #8 ~wizard~ ( 2 )
 
 COPY ~AjocMod/cre/AGDEANO.CRE~      ~override/AGDEANO.CRE~
   SAY NAME1 @6
@@ -245,14 +323,35 @@ COPY ~AjocMod/cre/agmag04.cre~      ~override/agmag04.cre~
 COPY ~AjocMod/cre/agoakbos.cre~     ~override/agoakbos.cre~
   SAY NAME1 @13
   SAY NAME2 @13
+	WRITE_BYTE 0x270 ~128~
+	WRITE_ASCII SCRIPT_OVERRIDE ~agoakbos~ (8)
+	WRITE_ASCII SCRIPT_CLASS ~~ (8)
+	WRITE_ASCII SCRIPT_RACE ~~ (8)
+	WRITE_ASCII SCRIPT_GENERAL ~~ (8)
+	WRITE_ASCII SCRIPT_DEFAULT ~~ (8)
+	WRITE_ASCII DEATHVAR ~agoakbos~ (32)
 
 COPY ~AjocMod/cre/AGOAKDW.CRE~      ~override/AGOAKDW.CRE~
   SAY NAME1 @13
   SAY NAME2 @13
+	WRITE_BYTE 0x270 ~128~
+	WRITE_ASCII SCRIPT_OVERRIDE ~AGOAKFIS~ (8)
+	WRITE_ASCII SCRIPT_CLASS ~~ (8)
+	WRITE_ASCII SCRIPT_RACE ~~ (8)
+	WRITE_ASCII SCRIPT_GENERAL ~~ (8)
+	WRITE_ASCII SCRIPT_DEFAULT ~~ (8)
+	WRITE_ASCII DEATHVAR ~oakdw~ (32)
 
 COPY ~AjocMod/cre/AGOAKDW2.CRE~     ~override/AGOAKDW2.CRE~
   SAY NAME1 @14
   SAY NAME2 @14
+	WRITE_BYTE 0x270 ~128~
+	WRITE_ASCII SCRIPT_OVERRIDE ~AGOAKDW~ (8)
+	WRITE_ASCII SCRIPT_CLASS ~WTASIGHT~ (8)
+	WRITE_ASCII SCRIPT_RACE ~~ (8)
+	WRITE_ASCII SCRIPT_GENERAL ~~ (8)
+	WRITE_ASCII SCRIPT_DEFAULT ~~ (8)
+	WRITE_ASCII DEATHVAR ~oakdw2~ (32)
 
 COPY ~AjocMod/cre/agadem01.cre~     ~override/agadem01.cre~
   SAY NAME1 @15
@@ -261,6 +360,12 @@ COPY ~AjocMod/cre/agadem01.cre~     ~override/agadem01.cre~
 COPY ~AjocMod/cre/AGOAKDW4.CRE~     ~override/AGOAKDW4.CRE~
   SAY NAME1 @16
   SAY NAME2 @16
+	WRITE_BYTE 0x270 ~128~
+	WRITE_ASCII SCRIPT_OVERRIDE ~AGOAKDW~ (8)
+	WRITE_ASCII SCRIPT_CLASS ~WTASIGHT~ (8)
+	WRITE_ASCII SCRIPT_RACE ~~ (8)
+	WRITE_ASCII SCRIPT_GENERAL ~~ (8)
+	WRITE_ASCII SCRIPT_DEFAULT ~~ (8)
 
 COPY ~AjocMod/cre/agsquir.cre~      ~override/agsquir.cre~
   SAY NAME1 @17
@@ -279,92 +384,92 @@ COPY ~AjocMod/cre/agbrus.cre~        ~override/agbrus.cre~
 COPY ~AjocMod/itm/AGAMUTHI.ITM~     ~override/AGAMUTHI.ITM~
   SAY NAME1 @18
   SAY NAME2 @19
-  SAY UNIDENTIFIED_DESC @20
-  SAY DESC @21
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_undesc_to_update = "@20" END
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_desc_to_update = "@21" END
 
 COPY ~AjocMod/itm/AGBELT01.ITM~     ~override/AGBELT01.ITM~
   SAY NAME1 @22
   SAY NAME2 @23
-  SAY UNIDENTIFIED_DESC @24
-  SAY DESC @25
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_undesc_to_update = "@24" END
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_desc_to_update = "@25" END
 
 COPY ~AjocMod/itm/agbladen.itm~     ~override/agbladen.itm~
   SAY NAME1 @26
   SAY NAME2 @27
-  SAY UNIDENTIFIED_DESC @28
-  SAY DESC @29
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_undesc_to_update = "@28" END
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_desc_to_update = "@29" END
 
 COPY ~AjocMod/itm/AGCHAIN.ITM~      ~override/AGCHAIN.ITM~
   SAY NAME1 @30
   SAY NAME2 @31
-  SAY UNIDENTIFIED_DESC @32
-  SAY DESC @33
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_undesc_to_update = "@32" END
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_desc_to_update = "@33" END
 
 COPY ~AjocMod/itm/AGCRAZY.ITM~      ~override/AGCRAZY.ITM~
   SAY NAME1 @18
   SAY NAME2 @34
-  SAY UNIDENTIFIED_DESC @20
-  SAY DESC @35
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_undesc_to_update = "@20" END
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_desc_to_update = "@35" END
 
 COPY ~AjocMod/itm/AGDAGG01.ITM~     ~override/AGDAGG01.ITM~
   SAY NAME1 @36
   SAY NAME2 @37
-  SAY UNIDENTIFIED_DESC @38
-  SAY DESC @39
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_undesc_to_update = "@38" END
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_desc_to_update = "@39" END
 
 COPY ~AjocMod/itm/agdg001.itm~      ~override/agdg001.itm~
   SAY NAME1 @40
   SAY NAME2 @41
-  SAY UNIDENTIFIED_DESC @42
-  SAY DESC @43
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_undesc_to_update = "@42" END
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_desc_to_update = "@43" END
 
 COPY ~AjocMod/itm/AGGUAN01.ITM~     ~override/AGGUAN01.ITM~
   SAY NAME1 @44
   SAY NAME2 @45
-  SAY UNIDENTIFIED_DESC @46
-  SAY DESC @47
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_undesc_to_update = "@46" END
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_desc_to_update = "@47" END
 
 COPY ~AjocMod/itm/AGHELM20.ITM~     ~override/AGHELM20.ITM~
   SAY NAME1 @48
   SAY NAME2 @49
-  SAY UNIDENTIFIED_DESC @50
-  SAY DESC @51
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_undesc_to_update = "@50" END
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_desc_to_update = "@51" END
 
 COPY ~AjocMod/itm/AGKEY01.ITM~      ~override/AGKEY01.ITM~
   SAY NAME1 @52
   SAY NAME2 @52
-  SAY UNIDENTIFIED_DESC @53
-  SAY DESC @53
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_undesc_to_update = "@53" END
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_desc_to_update = "@53" END
 
 COPY ~AjocMod/itm/AGLETT01.ITM~     ~override/AGLETT01.ITM~
   SAY NAME1 @54
   SAY NAME2 @54
-  SAY UNIDENTIFIED_DESC @55
-  SAY DESC @55
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_undesc_to_update = "@55" END
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_desc_to_update = "@55" END
 
 COPY ~AjocMod/itm/AGMOOSE.ITM~      ~override/AGMOOSE.ITM~
   SAY NAME1 @36
   SAY NAME2 @56
-  SAY UNIDENTIFIED_DESC @38
-  SAY DESC @57
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_undesc_to_update = "@38" END
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_desc_to_update = "@57" END
 
 COPY ~AjocMod/itm/Agoakha2.itm~     ~override/Agoakha2.itm~
   SAY NAME1 @58
   SAY NAME2 @59
-  SAY UNIDENTIFIED_DESC @60
-  SAY DESC @61
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_undesc_to_update = "@60" END
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_desc_to_update = "@61" END
 
 COPY ~AjocMod/itm/Agoakham.itm~     ~override/Agoakham.itm~
   SAY NAME1 @58
   SAY NAME2 @62
-  SAY UNIDENTIFIED_DESC @60
-  SAY DESC @63
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_undesc_to_update = "@60" END
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_desc_to_update = "@63" END
 
 COPY ~AjocMod/itm/AGRING02.ITM~     ~override/AGRING02.ITM~
   SAY NAME1 @64
   SAY NAME2 @65
-  SAY UNIDENTIFIED_DESC @66
-  SAY DESC @67
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_undesc_to_update = "@66" END
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_desc_to_update = "@67" END
 
 COPY ~AjocMod/spl/agrin002.SPL~      ~override~
   SAY NAME1 ~~
@@ -380,8 +485,8 @@ COPY ~AjocMod/eff/AGRING02.eff~      ~override~
 COPY ~AjocMod/itm/AGRING03.ITM~     ~override/AGRING03.ITM~
   SAY NAME1 @64
   SAY NAME2 @68
-  SAY UNIDENTIFIED_DESC @66
-  SAY DESC @69
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_undesc_to_update = "@66" END
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_desc_to_update = "@69" END
 
 COPY ~AjocMod/spl/agrin003.SPL~      ~override~
   SAY NAME1 ~~
@@ -397,25 +502,25 @@ COPY ~AjocMod/eff/AGRING03.eff~      ~override~
 COPY ~AjocMod/itm/AGRING04.ITM~     ~override/AGRING04.ITM~
   SAY NAME1 @64
   SAY NAME2 @70
-  SAY UNIDENTIFIED_DESC @66
-  SAY DESC @71
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_undesc_to_update = "@66" END
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_desc_to_update = "@71" END
 
 COPY ~AjocMod/itm/AGRING99.ITM~     ~override/AGRING99.ITM~
   SAY NAME1 @64
   SAY NAME2 @72
-  SAY UNIDENTIFIED_DESC @66
-  SAY DESC @73
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_undesc_to_update = "@66" END
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_desc_to_update = "@73" END
 
 COPY ~AjocMod/itm/AGSLING4.itm~     ~override/AGSLING4.itm~
   SAY NAME1 @74
   SAY NAME2 @75
-  SAY UNIDENTIFIED_DESC @76
-  SAY DESC @77
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_undesc_to_update = "@76" END
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_desc_to_update = "@77" END
 
 COPY ~AjocMod/itm/AGSP999S.itm~     ~override/AGSP999S.itm~
   SAY NAME1 @78
   SAY NAME2 @79
-  SAY DESC @80
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_desc_to_update = "@80" END
 
 COPY ~AjocMod/itm/JY_01DB.ITM~      ~override/JY_01DB.ITM~
   SAY NAME1 @8
@@ -424,14 +529,14 @@ COPY ~AjocMod/itm/JY_01DB.ITM~      ~override/JY_01DB.ITM~
 COPY ~AjocMod/itm/JY_02DB.ITM~      ~override/JY_02DB.ITM~
   SAY NAME1 @8
   SAY NAME2 @8
-  SAY UNIDENTIFIED_DESC @81
-  SAY DESC @81
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_undesc_to_update = "@81" END
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_desc_to_update = "@81" END
 
 COPY ~AjocMod/itm/JY_03DB.ITM~      ~override/JY_03DB.ITM~
   SAY NAME1 @9
   SAY NAME2 @9
-  SAY UNIDENTIFIED_DESC @82
-  SAY DESC @82
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_undesc_to_update = "@82" END
+  LPF ~GW_WRITE_EE_ITM_DESCRIPTIONS~ STR_VAR GW_desc_to_update = "@82" END
 
 // Ajoc's Spells
 
@@ -442,29 +547,37 @@ COPY ~AjocMod/spl/AGSP999.SPL~      ~override/AGSP999.SPL~
   SAY NAME1 @79
   SAY UNIDENTIFIED_DESC @80
 
-COPY ~AjocMod/spl/spwi966.spl~      ~override/spwi966.spl~
+COPY ~AjocMod/spl/AGwi966.spl~      ~override~
   SAY NAME1 @84
 
-COPY ~AjocMod/spl/SPWI967.SPL~      ~override/SPWI967.SPL~
+COPY ~AjocMod/spl/AGWI967.SPL~      ~override~
   SAY NAME1 @85
 
-COPY ~AjocMod/spl/SPWI968.SPL~      ~override/SPWI968.SPL~
+COPY ~AjocMod/spl/AGWI968.SPL~      ~override~
   SAY NAME1 @86
+
+/*
+ADD_SPELL ~AjocMod/spl/AGWI967.spl~ 2 8 AJOC_CORPAE_CURSE
+  SAY NAME1 @85
+
+ADD_SPELL ~AjocMod/spl/AGWI968.spl~ 2 8 AJOC_PARTY_IMMOLATION
+  SAY NAME1 @86
+*/
 
 //Dialogs from Dfiles
 
-COMPILE~AjocMod/dlg/Agadem01.d~
-COMPILE~AjocMod/dlg/Agbadguy.d~
-COMPILE~AjocMod/dlg/Agboss.d~
-COMPILE~AjocMod/dlg/Agbrus.d~
-COMPILE~AjocMod/dlg/Agdeano.d~
-COMPILE~AjocMod/dlg/Agdeimos.d~
-COMPILE~AjocMod/dlg/Aghermit.d~
-COMPILE~AjocMod/dlg/Agloron.d~
-COMPILE~AjocMod/dlg/Agloron2.d~
-COMPILE~AjocMod/dlg/Agmag01.d~
-COMPILE~AjocMod/dlg/Agoakbos.d~
-COMPILE~AjocMod/dlg/Agoakint.d~
+COMPILE ~AjocMod/dlg/Agadem01.d~
+COMPILE ~AjocMod/dlg/Agbadguy.d~
+COMPILE ~AjocMod/dlg/Agboss.d~
+COMPILE ~AjocMod/dlg/Agbrus.d~
+COMPILE ~AjocMod/dlg/Agdeano.d~
+COMPILE ~AjocMod/dlg/Agdeimos.d~
+COMPILE ~AjocMod/dlg/Aghermit.d~
+COMPILE ~AjocMod/dlg/Agloron.d~
+COMPILE ~AjocMod/dlg/Agloron2.d~
+COMPILE ~AjocMod/dlg/Agmag01.d~
+COMPILE ~AjocMod/dlg/Agoakbos.d~
+COMPILE ~AjocMod/dlg/Agoakint.d~
 
 // Ajoc's Scripts
 
@@ -486,7 +599,7 @@ EXTEND_TOP ~AR1002.bcs~~AjocMod/snip/sAR1002.baf~
 //				                                       //
 // Tileset and sound decompressing blatantly ripped off from Ghreyfain //
 //				                                       //
-////////////////////////////////////////////////////////////////////////// BG2EE EET
+//////////////////////////////////////////////////////////////////////////
 
 ACTION_IF (GAME_IS ~bg2ee eet~) BEGIN
 
@@ -538,3 +651,94 @@ END
 // COPY ~AjocMod\installer.bat~ ~AjocMod_Installer.bat~
 // AT_INTERACTIVE_EXIT ~AjocMod_Installer.bat~
 // AT_INTERACTIVE_UNINSTALL ~AjocMod\Uninstaller.bat~
+
+/*
+COPY_EXISTING ~AG1000.are~ ~override~
+   LPF fj_are_structure
+    INT_VAR
+    fj_loc_x       = 783
+    fj_loc_y       = 691
+    fj_orientation = 0
+    STR_VAR
+    fj_structure_type = entrance
+    fj_name           = Shrine
+  END
+
+
+// Append mastarea.2da with the new areas
+	APPEND ~MASTAREA.2da~ ~AG1000 value~ UNLESS ~AG1000~ // Adilthora
+
+ACTION_IF NOT GAME_IS ~eet~ THEN BEGIN
+
+PRINT ~Icons added to regular BG2 map.
+~
+
+			OUTER_SPRINT "game_worldmap" "worldmap"
+
+		INCLUDE ~%MOD_FOLDER%/lib/add_worldmap_tbl.tpa~
+
+		LAF ADD_WORLDMAP_TBL
+			INT_VAR
+				verbose = 1
+				inclSv = 0
+			STR_VAR
+			path_to_areas = EVAL ~%MOD_FOLDER%/Worldmap/bg2_areas.tbl~
+			path_to_links = EVAL ~%MOD_FOLDER%/Worldmap/links.tbl~
+			path_to_trans = EVAL ~%MOD_FOLDER%/Languages/%LANGUAGE%/setup.tra~
+			worldmap = EVAL ~%game_worldmap%~
+		END
+
+END
+
+ACTION_IF GAME_IS ~eet~ THEN BEGIN
+
+PRINT ~Icons added to EET map.
+~
+
+			OUTER_SPRINT "game_worldmap" "worldmap"
+
+		INCLUDE ~%MOD_FOLDER%/lib/add_worldmap_tbl.tpa~
+
+		LAF ADD_WORLDMAP_TBL
+			INT_VAR
+				verbose = 1
+				inclSv = 0
+			STR_VAR
+			path_to_areas = EVAL ~%MOD_FOLDER%/Worldmap/eet_areas.tbl~
+			path_to_links = EVAL ~%MOD_FOLDER%/Worldmap/links.tbl~
+			path_to_trans = EVAL ~%MOD_FOLDER%/Languages/%LANGUAGE%/setup.tra~
+			worldmap = EVAL ~%game_worldmap%~
+		END
+
+END
+
+//////////////////////////////////
+// BP-BGT-Worldmap Compatibility
+//////////////////////////////////
+
+PRINT ~Icons assets in case BP-BGT-Worldmap will be installed.
+~
+
+	ACTION_IF FILE_EXISTS ~Worldmap/map_mods_areas.tbl~ THEN BEGIN
+
+		COPY ~Worldmap/map_mods_areas.tbl~		~Worldmap~
+			APPEND_FILE ~%MOD_FOLDER%/Worldmap/areas.tbl~
+
+		COPY ~Worldmap/map_mods_links.tbl~		~Worldmap~
+			APPEND_FILE ~%MOD_FOLDER%/Worldmap/links.tbl~
+
+		COPY ~Worldmap/map_mods_trans.tra~		~Worldmap~
+			APPEND_FILE_EVALUATE ~%MOD_FOLDER%/Languages/%LANGUAGE%/setup.tra~
+
+	END ELSE BEGIN
+
+		MKDIR ~Worldmap~
+
+		COPY ~%MOD_FOLDER%/Worldmap/areas.tbl~							~Worldmap/map_mods_areas.tbl~
+
+		COPY ~%MOD_FOLDER%/Worldmap/links.tbl~							~Worldmap/map_mods_links.tbl~
+
+		COPY ~%MOD_FOLDER%/Languages/%LANGUAGE%/setup.tra~	~Worldmap/map_mods_trans.tra~
+
+	END
+*/

@@ -1,0 +1,36 @@
+
+@1000   = ~Ihr begleitet Loron~
+
+// AGLORON.TRA
+@1001   = ~Ihr begleitet Loron
+
+Ich versuchte, Loron zu töten, aber er rannte weg. Ich nehme an, dass, wenn ich sein Geld noch immer will, ich seinem Dorf einen Besuch abstatten muss, worauf Brus mich hinwies.~ // @6 // Replaced by @1006 
+
+@1002  = ~Ihr begleitet Loron
+
+Ich erklärte mich einverstanden, Loron zu seinem Dorf zu begleiten, und er bot eine anständige Belohnung an, welche mir hilft, Gaelans Schulden zu zahlen. Er sagte mir, ich solle Ihn an den Stadttoren treffen.~ // @11
+
+@1003  = ~Ihr begleitet Loron
+
+Wir hatten ein paar Schwierigkeiten mit Banditen, aber es war nicht schwer, mit Ihnen fertig zu werden.~ // @27
+
+// AGBRUS.TRA
+@1004   = ~Ihr begleitet Loron
+
+Brus, ein kleiner Junge aus den Slums, erzählte mir, wenn ich Arbeit und Geld wolle, sollte ich im Regierungsbezirk nach Loron suchen. Augenscheinlich benötigt er die Hilfe einiger Abenteurer, die ihn sicher zurück zu seinem Dorf bringen. Er ist angeblich sehr reich und kann gut zahlen...~ // @9 
+
+@1005  = ~Ihr begleitet Loron
+
+Brus, ein kleiner Junge aus den Slums, erzählte mir, dass es ein reicher Mann namens Loron ist. Er sagte, dass der Mann einen Begleiter zurück zu seinem Dorf braucht, aber ich überlege, ob ich ihn wegen seines Geldes töte. Weniger Arbeit, mehr Geld.~ // @11
+
+// New
+@1006  = ~Ihr begleitet Loron
+
+I tried to kill Loron, but he did a runner. I shouldn't underestimated the speed of elderly folk.~
+
+@1007  = ~Ihr begleitet Loron
+
+I let Loron at the mercy of bandits, but he did a runner. I shouldn't underestimated the speed of elderly folk.~
+
+
+// Could add the area on worldmap and allow player to try again.

@@ -1,0 +1,6 @@
+
+/* ================= *
+ *  Usability flags  *
+ * ================= */
+@9001 = ~\([Ss]ólo[ %tab%]+\)?[Uu]tilizable[ %tab%]+[Pp]or[ %tab%]*:~
+@9002 = ~[Nn]o[ %tab%]+[Uu]tilizable[ %tab%]+[[Pp]or[ %tab%]*:~

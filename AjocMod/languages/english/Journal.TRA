@@ -1,0 +1,36 @@
+
+@1000   = ~Escorting Loron~
+
+// AGLORON.TRA
+@1001   = ~Escorting Loron
+
+I tried to kill Loron, but he did a runner. I guess if I still want his money I'll have to pay a visit to his village, which Brus pointed out to me.~ // @6 // Replaced by @1006 
+
+@1002  = ~Escorting Loron
+
+I accepted to take Loron back to his village, and he offered a decent reward, which will help me pay for Gaelan's fee. He said to meet him at the City Gates.~ // @11
+
+@1003  = ~Escorting Loron
+
+We had a little trouble with bandits, but they were not too hard to deal with.~ // @27
+
+// AGBRUS.TRA
+@1004   = ~Escorting Loron
+
+Brus, a small boy in the slums, told me if I wanted work and money, I should go and visit Loron in the Government District. He is apparentley in need of some adventurers to escort him safely back to his village. He is allegedly very rich, and may pay well...~ // @9 
+
+@1005  = ~Escorting Loron
+
+Brus, a small boy in the slums, told me there is a rich man named Loron in the Government District. He says that the man needs an escort back to his village, but I am considering killing him for his cash. Less work, more pay.~ // @11
+
+// New
+@1006  = ~Escorting Loron
+
+I tried to kill Loron, but he did a runner. I shouldn't underestimated the speed of elderly folk.~
+
+@1007  = ~Escorting Loron
+
+I let Loron at the mercy of bandits, but he did a runner. I shouldn't underestimated the speed of elderly folk.~
+
+
+// Could add the area on worldmap and allow player to try again.

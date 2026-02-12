@@ -26,14 +26,13 @@ END
 
 IF ~~ THEN BEGIN 3 // from: 2.0
   SAY @7 /* ~Most amusing. Why would I need to arm myself, when I can slay you in a few spells time?~ #62788 */
-  IF ~~ THEN DO ~StartCutSceneMode()
+  IF ~~ THEN DO ~Enemy()
+StartCutSceneMode()
 StartCutScene("agminion")
 ~ EXIT
 END
 
 IF ~~ THEN BEGIN 4 // from: 1.1
   SAY @8 /* ~Don't you worry. I'm going to fight alright.~ #62789 */
-  IF ~~ THEN DO ~StartCutSceneMode()
-StartCutScene("agbossgo")
-~ EXIT
+  IF ~~ THEN DO ~Enemy()~ EXIT
 END

@@ -30,5 +30,5 @@ END
 IF ~True()
 ~ THEN BEGIN 4 // from:
   SAY @2 /* ~Look! Look! It is those who aid Loron! Slay them!~ #62902 */
-  IF ~~ THEN EXIT
+  IF ~~ THEN DO ~SetGlobal("AG_AGOAK_enemy","MYAREA",1) Enemy()~ EXIT // Add script for other and make them neutral until set
 END

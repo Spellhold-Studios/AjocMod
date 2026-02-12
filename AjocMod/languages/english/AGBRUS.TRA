@@ -4,14 +4,22 @@
 @3   = ~Get lost child!~
 @4   = ~An elder has been staying here and needs and needs escort back to his village.~
 @5   = ~You can find him in the Government District, in the main building. His name is Loron. He's incredibly rich and a hot target to bandits, and your protection would be welcome.~
-@6   = ~Sounds interesting, I'll take a look in a bit. Thankyou.~
+@6   = ~Sounds interesting, I'll take a look in a bit. Thank you.~
 @7   = ~Haha! I think I'll go and mug this poor fool and use his money to pay for Gaelan's fees.~
 @8   = ~No problem.~
+
+/*
 @9   = ~Escorting Loron
 
 Brus, a small boy in the slums, told me if I wanted work and money, I should go and visit Loron in the Government District. He is apparentley in need of some adventurers to escort him safely back to his village. He is allegedly very rich, and may pay well...~
+*/
+
 @10  = ~Urr, sure.~
+
+/*
 @11  = ~Escorting Loron
 
 Brus, a small boy in the slums, told me there is a rich man named Loron in the Government District. He says that the man needs an escort back to his village, but I am considering killing him for his cash. Less work, more pay.~
+*/
+
 @12  = ~Fine...~

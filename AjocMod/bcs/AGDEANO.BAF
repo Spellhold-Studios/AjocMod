@@ -1,10 +1,10 @@
 IF
 	See([PC])
-	Global("AG8000FirstVisit","AG8000",2)
-	Range([PC],30)
+	Global("AG_8000FirstVisit","MYAREA",3)
+	Range([PC],20)
 THEN
 	RESPONSE #100
-		SetGlobal("AG8000FirstVisit","AG8000",3)
+		SetGlobal("AG_8000FirstVisit","MYAREA",4)
 		StartDialogueNoSet([PC])
 END
 

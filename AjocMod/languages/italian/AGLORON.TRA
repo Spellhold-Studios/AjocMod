@@ -4,16 +4,24 @@
 @3   = ~Naturalmente, andiamo.~
 @4   = ~Ah! Muori! Ho bisogno del tuo denaro!~
 @5   = ~Oh no, BASTA banditi!~
+
+/*
 @6   = ~Scortando Loron
 
 Ho provato ad uccidere Loron, ma è scappato a gambe levate. Penso che se voglio ancora i suoi soldi dovrò far visita al suo villaggio, quello che mi indicò Brus.~
+*/
+
 @7   = ~<NO TEXT>~
 @8   = ~Grazie, lo apprezzo molto. I soldi non sono un problema per me, il tuo pagamento sarà adeguato.~
 @9   = ~Quando ci mettiamo in marcia?~
 @10  = ~Ci incontreremo alle Porte della Città. Prima di andare, acquista tutto ciò di cui hai bisogno. Ancora una volta, grazie.~
+
+/*
 @11  = ~Scortando Loron
 
 Ho accettato di accompagnare Loron al suo villaggio, e mi ha offerto una buona ricompensa, che mi aiuterà a pagare Gaelan. Mi ha detto di incontrarlo alle Porte della Città.~
+*/
+
 @12  = ~Sono contento di vederti! Stavo diventando nervoso.~
 @13  = ~Mi dispiace averti fatto aspettare.~
 @14  = ~Ok, iniziamo il nostro viaggio. Non posso aspettare ancora per abbandonare questa città.~
@@ -29,9 +37,13 @@ Ho accettato di accompagnare Loron al suo villaggio, e mi ha offerto una buona r
 @24  = ~Dimmi quando sei pronto ad andare. Non voglio rimanere qui più del necessario. Non andare senza di me, perché io sarò perduto ma tu non avrai la tua ricompensa.~
 @25  = ~Sei pronto ad andare ad Adilthora?~
 @26  = ~Lasciami finire con i corpi di questi banditi.~
+
+/*
 @27  = ~Scortando Loron
 
 Abbiamo avuto un piccolo problema con dei banditi, ma non è stato molto difficile liberarci di loro.~
+*/
+
 @28  = ~Ok, andiamo.~
 @29  = ~Ah, alla fine ce l’abbiamo fatta. Grazie infinite. Spero di incontrarti ancora.~
 @30  = ~Nessun problema, addio.~

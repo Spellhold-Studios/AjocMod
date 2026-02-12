@@ -1,6 +1,5 @@
 IF
 	See([PC])
-	Range([PC],30)
 	Global("Talk","LOCALS",0)
 THEN
 	RESPONSE #100

@@ -27,6 +27,7 @@ THEN
 		Attack(LastAttackerOf(Myself))
 END
 
+/*
 IF
 	Name("SUELFEND",Myself)
 	GlobalGT("TalkAjoc","GLOBAL",0)
@@ -34,4 +35,5 @@ THEN
 	RESPONSE #100
 		DestroySelf()
 END
+*/
 

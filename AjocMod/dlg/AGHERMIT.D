@@ -7,8 +7,7 @@
 
 BEGIN ~AGHERMIT~
 
-IF ~True()
-~ THEN BEGIN 0 // from:
+IF ~True()~ THEN BEGIN 0 // from:
   SAY @1 /* ~Wanna see something amazing?~ #62818 */
   IF ~~ THEN REPLY @2 /* ~What?~ #62819 */ GOTO 1
   IF ~~ THEN REPLY @3 /* ~No thanks, bye!~ #62820 */ EXIT

@@ -3,6 +3,7 @@ IF
 THEN
 	RESPONSE #100
 		CutSceneId(Player1)
+		ClearAllActions()
 		MoveViewPoint([786.196],INSTANT)
 		ActionOverride(Player2,MoveToPoint([870.142]))
 		ActionOverride(Player3,MoveToPoint([810.116]))
@@ -11,9 +12,9 @@ THEN
 		ActionOverride(Player6,MoveToPoint([651.171]))
 		ActionOverride("agloron",MoveToPoint([773.91]))
 		MoveToPoint([828.66])
-		Wait(5)
-		FadeToColor([30.0],0)
 		Wait(2)
+		FadeToColor([30.0],0)
+		Wait(1)
 		ActionOverride("agloron",DestroySelf())
 		StartCutScene("agvill2")
 END

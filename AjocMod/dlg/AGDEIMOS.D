@@ -7,8 +7,7 @@
 
 BEGIN ~AGDEIMOS~
 
-IF ~True()
-!Global("deimos2","AG8000",2)
+IF ~Global("deimos2Authorities","MYAREA",0)
 ~ THEN BEGIN 0 // from:
   SAY @1 /* ~Hi, I'm Deimos. I have lived in this cave ever since my old home banished me.~ #62804 */
   IF ~~ THEN REPLY @2 /* ~Greetings, why were you exiled?~ #62805 */ GOTO 1
@@ -16,13 +15,16 @@ END
 
 IF ~~ THEN BEGIN 1 // from: 0.0
   SAY @3 /* ~I was accused of stealing. Stealing someone's work.~ #62806 */
-  IF ~~ THEN DO ~TakePartyGold(2000)
-~ GOTO 2
+  IF ~~ THEN GOTO 2
 END
 
 IF ~~ THEN BEGIN 2 // from: 1.0
   SAY @4 /* ~But I didn't.~ #62807 */
-  IF ~~ THEN REPLY @5 /* ~Hey! I saw that! Give it back right now!~ #62808 */ GOTO 3
+  IF ~~ THEN DO ~SetGlobal("deimos2Authorities","MYAREA",1)
+SetGlobal("AG_8000FirstVisit","MYAREA",2)
+StartCutSceneMode()
+StartCutScene("agthief")
+~ EXIT
 END
 
 IF ~~ THEN BEGIN 3 // from: 2.0
@@ -41,9 +43,10 @@ IF ~~ THEN BEGIN 5 // from: 4.0
   IF ~~ THEN REPLY @11 /* ~Just give it back, or else the authorities will get you if I don't!~ #62814 */ GOTO 6
 END
 
-IF ~~ THEN BEGIN 6 // from: 5.0
+IF ~Global("deimos2Authorities","MYAREA",2)
+!GlobalGT("deimos2","MYAREA",0)~ THEN BEGIN 6 // from: 5.0
   SAY @12 /* ~Authorities...uh oh!~ #62815 */
-  IF ~~ THEN DO ~~ EXIT
+  IF ~~ THEN DO ~SetGlobal("deimos2Authorities","MYAREA",2)~ EXIT
 END
 
 IF ~False()
@@ -51,13 +54,17 @@ IF ~False()
   SAY @13 /* ~Deano...noooo...it was an accident....I never meant too...!!~ #62816 */
   IF ~~ THEN DO ~StartCutSceneMode()
 StartCutScene("agdemdie")
-SetGlobal("bosstime","AG8000",1)
 ~ EXIT
 END
 
-IF ~Global("deimos2","AG8000",2)
+IF ~Global("deimos2","MYAREA",2)
 ~ THEN BEGIN 8 // from:
   SAY @14 /* ~I'm back. I had to change my name, for legal reasons. You will never be rid of me!~ #62817 */
   IF ~~ THEN DO ~SetGlobal("deimos2","AG8000",3)
 ~ EXTERN ~AGDEANO~ 2
+END
+
+IF ~Global("deimos2Authorities","MYAREA",1)~ THEN BEGIN 2.5 // from: 1.0
+  SAY ~...~
+  IF ~~ THEN REPLY @5 /* ~Hey! I saw that! Give it back right now!~ #62808 */ GOTO 3
 END

@@ -7,17 +7,12 @@
 
 BEGIN ~AGLORON2~
 
-IF ~False()
-!Global("CorpaeDead","GLOBAL",1)
-~ THEN BEGIN 0 // from:
+IF ~False()~ THEN BEGIN 0 // from:
   SAY @1 /* ~So you finally caught up with me, but i am in my domain. My followers here will protect me.~ #62853 */
   IF ~~ THEN EXTERN ~AGBADGUY~ 1
 END
 
-IF ~Global("AGLoronArrived","GLOBAL",1)
-!Global("AGCaveVisit","GLOBAL",1)
-!Global("CorpaeDead","GLOBAL",1)
-~ THEN BEGIN 1 // from:
+IF ~Global("AG_Loron_Quest","GLOBAL",10)~ THEN BEGIN 1 // from:
   SAY @2 /* ~I have returned! Your leader is back!~ #62854 */
   IF ~~ THEN GOTO 2
 END
@@ -31,10 +26,9 @@ END
 
 IF ~~ THEN BEGIN 3 // from: 4.0 2.1 2.0
   SAY @7 /* ~Fear not, you shall be rewarded, what do y-~ #62859 */
-  IF ~~ THEN DO ~StartCutSceneMode()
+  IF ~~ THEN DO ~SetGlobal("AG_Loron_Quest","GLOBAL",11)
+StartCutSceneMode()
 StartCutScene("agbadari")
-SetGlobal("AGLoronArrived","GLOBAL",2)
-SetGlobal("AGVillageHeld","GLOBAL",2)
 ~ EXIT
 END
 
@@ -43,10 +37,8 @@ IF ~~ THEN BEGIN 4 // from: 2.2
   IF ~~ THEN REPLY @9 /* ~I guess it doesn't matter that much, assuming I get a reward!~ #62861 */ GOTO 3
 END
 
-IF ~Global("LoronSpeak","GLOBAL",1)
-!Global("AGKillCorpaeCave","GLOBAL",1)
-!Global("CorpaeDead","GLOBAL",1)
-~ THEN BEGIN 5 // from:
+IF ~Global("AG_Loron_Quest","GLOBAL",15)
+!GlobalGT("LoronSpeak","LOCALS",0)~ THEN BEGIN 5 // from:
   SAY @10 /* ~You...you came after me! You are a true friend!~ #62862 */
   IF ~~ THEN REPLY @11 /* ~Well, we got kind of worried. It's thanks to Ademoth we found you!~ #62863 */ GOTO 6
   IF ~~ THEN REPLY @12 /* ~We didn't REALLY care about you really, it was the reward, which I think you still owe me that attracted me here.~ #62864 */ GOTO 6
@@ -74,9 +66,7 @@ END
 
 IF ~~ THEN BEGIN 10 // from: 9.0
   SAY @20 /* ~He also seems to have a lot of followers, and is very powerful. Be careful.~ #62872 */
-  IF ~~ THEN DO ~SetGlobal("AGKillCorpaeCave","GLOBAL",1)
-SetGlobal("LoronSpeak","GLOBAL",2)
-~ GOTO 14
+  IF ~~ THEN GOTO 14
 END
 
 IF ~~ THEN BEGIN 11 // from:
@@ -89,43 +79,44 @@ IF ~~ THEN BEGIN 12 // from:
   IF ~~ THEN EXTERN ~AGBADGUY~ 1
 END
 
-IF ~Global("AGKillCorpaeCave","GLOBAL",1)
-!Global("CorpaeDead","GLOBAL",1)
+IF ~Global("LoronSpeak","LOCALS",1)
+!Dead("AGBOSS")
 ~ THEN BEGIN 13 // from:
   SAY @22 /* ~Please destroy Corpae soon. He is getting stronger, I feel it.~ #62873 */
   IF ~~ THEN REPLY @23 /* ~I am trying, sorry.~ #62874 */ EXIT
 END
 
 IF ~~ THEN BEGIN 14 // from: 10.0
-  SAY @24 /* ~Oh and beware of the Oak Fist. They are ancient Clan of Battle Dwatves, and I am not sure why they aid Corpae.~ #62875 */
+  SAY @24 /* ~Oh and beware of the Oak Fist. They are ancient Clan of Battle Dwarves, and I am not sure why they aid Corpae.~ #62875 */
   IF ~~ THEN REPLY @25 /* ~Well, thanks for the information. I will return as soon as possible.~ #62876 */ GOTO 15
 END
 
 IF ~~ THEN BEGIN 15 // from: 14.0
   SAY @26 /* ~Please return soon! I feel myself getting weaker, and Corpae getting stronger!~ #62877 */
-  IF ~~ THEN EXIT
+  IF ~~ THEN DO ~SetGlobal("LoronSpeak","LOCALS",2)
+TriggerActivation("portalout",TRUE)
+SetGlobal("LoronSpeak","LOCALS",1)
+CreateVisualEffect("CALLLIGH",[793.687])~ EXIT
 END
 
-IF ~Global("CorpaeDead","GLOBAL",1)
-~ THEN BEGIN 16 // from:
+IF ~Dead("AGBOSS")~ THEN BEGIN 16 // from:
   SAY @27 /* ~I feel strength returning...Corpae must be dead!~ #62878 */
   IF ~~ THEN REPLY @28 /* ~We tore him apart!~ #62879 */ GOTO 17
 END
 
 IF ~~ THEN BEGIN 17 // from: 16.0
   SAY @29 /* ~Excellent work. I will be forever in your debt. Maybe this reward can compensate for your troubles.~ #62880 */
-  IF ~~ THEN REPLY @30 /* ~Thank you!~ #62881 */ DO ~GiveGoldForce(6500)
+  IF ~~ THEN REPLY @30 /* ~Thank you!~ #62881 */ DO ~SetGlobal("LoronSpeak","LOCALS",2)
+GiveGoldForce(6500)
 AddXPObject(Player1,25000)
 AddXPObject(Player2,25000)
 AddXPObject(Player3,25000)
 AddXPObject(Player4,25000)
 AddXPObject(Player5,25000)
-AddXPObject(Player6,25000)
-~ GOTO 18
+AddXPObject(Player6,25000)~ GOTO 18
 END
 
 IF ~~ THEN BEGIN 18 // from: 17.0
   SAY @31 /* ~Until next time, <CHARNAME>.~ #62882 */
-  IF ~~ THEN DO ~EscapeArea()
-~ EXIT
+  IF ~~ THEN DO ~EscapeArea()~ EXIT
 END

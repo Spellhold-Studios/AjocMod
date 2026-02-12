@@ -1,4 +1,4 @@
-@0    = ~AjocMod Weidu~
+@0    = ~AjocMod~
 @1    = ~Oak Fist Cleric~
 @2    = ~Corpae~
 @3    = ~Bandit~
@@ -367,3 +367,4 @@ This spell transports the caster to any place within the visual range of the cas
 @84   = ~Curse Loron~
 @85   = ~Corpae's Curse~
 @86   = ~Party Immolation~
+@87   = ~Adilthora~

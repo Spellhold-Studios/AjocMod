@@ -1,9 +1,11 @@
 IF
-	Global("AGLoronGov","GLOBAL",1)
+	Global("AG_Loron_Quest","GLOBAL",1)
+	Global("AG_LoronGov","MYAREA",0)
 THEN
 	RESPONSE #100
 		CreateCreature("AGLoron",[458.844],14)
-		SetGlobal("AGLoronGov","GLOBAL",2)
+		SetGlobal("AG_Loron_Quest","GLOBAL",2)
+		SetGlobal("AG_LoronGov","MYAREA",1)
 		Continue()
 END
 

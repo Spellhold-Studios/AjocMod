@@ -1,0 +1,36 @@
+
+@1000   = ~Escoltando a Loron~
+
+// AGLORON.TRA
+@1001   = ~Escoltando a Loron
+
+Intenté matar a Loron, pero se largó. Creo que si aún quiero su dinero tendré que hacer una visita a su pueblo, el que me señaló Brus.~ // @6 // Replaced by @1006 
+
+@1002  = ~Escoltando a Loron
+
+He aceptado llevar a Loron de vuelta a su pueblo, y me ofreció una recompensa decente que me ayudará a pagar los honorarios de Gaelan. Me dijo que le buscara en las Puertas de la Ciudad.~ // @11
+
+@1003  = ~Escoltando a Loron
+
+Tuvimos un pequeño problema con unos bandidos, pero no fue muy difícil de solventar.~ // @27
+
+// AGBRUS.TRA
+@1004   = ~Escoltando a Loron
+
+Brus, un chaval de los suburbios, me dijo que si quería trabajar, debería ir a visitar a  Loron en el Distrito Gubernamental. Parece que necesita algunos aventureros para escoltarle a salvo de vuelta a su pueblo. Es muy rico, y podría pagar bien...~ // @9 
+
+@1005  = ~Escoltando a Loron
+
+Brus, un chaval de los suburbios, me dijo que hay un hombre muy rico llamado Loron en el Distrito Gubernamental. Dice que el susodicho necesita escolta de vuelta hasta su pueblo, pero estoy considerando la posibilidad de matarlo para robarle su dinero. Menos trabajo, más beneficios.~ // @11
+
+// New
+@1006  = ~Escoltando a Loron
+
+I tried to kill Loron, but he did a runner. I shouldn't underestimated the speed of elderly folk.~
+
+@1007  = ~Escoltando a Loron
+
+I let Loron at the mercy of bandits, but he did a runner. I shouldn't underestimated the speed of elderly folk.~
+
+
+// Could add the area on worldmap and allow player to try again.

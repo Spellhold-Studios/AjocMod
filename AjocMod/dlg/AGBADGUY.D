@@ -7,35 +7,26 @@
 
 BEGIN ~AGBADGUY~
 
-IF ~NumberOfTimesTalkedTo(0)
-!Global("AGCaveVisit","GLOBAL",1)
-~ THEN BEGIN 0 // from:
+IF ~Global("AG_Loron_Quest","GLOBAL",11)~ THEN BEGIN 0 // from:
   SAY @1 /* ~Loron! This meeting is over! Your coming with us! We knew you would leave the protection of the Cowled Wizards at some time.~ #62768 */
-  IF ~~ THEN DO ~~ EXTERN ~AGLORON2~ 0
+  IF ~~ THEN EXTERN ~AGLORON2~ 0
 END
 
-IF ~!NumberOfTimesTalkedTo(0)
-!Global("AGVillageHeld","GLOBAL",4)
-!Global("AGCaveVisit","GLOBAL",1)
-!AreaCheck("AG1500")
-~ THEN BEGIN 1 // from:
+IF ~~ THEN BEGIN 1 // from:
   SAY @2 /* ~That is it! Mages! Curse this dump! Take the worm to OUR domain. We'll get our answers there.~ #62769 */
-  IF ~~ THEN DO ~SetGlobal("AGVillageHeld","GLOBAL",1)
-~ EXIT
+  IF ~~ THEN DO ~SetGlobal("AG_Loron_Quest","GLOBAL",12)~ EXIT
 END
 
-IF ~Global("AGVillageHeld","GLOBAL",4)
-!Global("AGCaveVisit","GLOBAL",1)
-~ THEN BEGIN 2 // from:
+IF ~Global("AG_Loron_Quest","GLOBAL",12)~ THEN BEGIN 2 // from:
   SAY @3 /* ~How's that Loron? Your precious domain is frozen, your followers are no more.~ #62770 */
   IF ~~ THEN GOTO 3
 END
 
 IF ~~ THEN BEGIN 3 // from: 2.0
   SAY @4 /* ~Your are powerless.~ #62771 */
-  IF ~~ THEN DO ~StartCutScene("AGBadGo")
-StartCutSceneMode()
-~ EXIT
+  IF ~~ THEN DO ~SetGlobal("AG_Loron_Quest","GLOBAL",13)
+StartCutScene("AGBadGo")
+StartCutSceneMode()~ EXIT
 END
 
 IF ~~ THEN BEGIN 4 // from:
@@ -43,7 +34,7 @@ IF ~~ THEN BEGIN 4 // from:
   IF ~~ THEN DO ~~ EXTERN ~AGLORON2~ 0
 END
 
-IF ~Global("AGCaveVisit","GLOBAL",1)
+IF ~Global("AG_Loron_Quest","GLOBAL",14)
 ~ THEN BEGIN 5 // from:
   SAY @6 /* ~Still you follow me? Why do you wish to be involved in Loron and I's dispute?~ #62772 */
   IF ~~ THEN REPLY @7 /* ~You are a crook Corpae. I will destroy your followers and your power.~ #62773 */ GOTO 6
@@ -59,7 +50,8 @@ END
 
 IF ~~ THEN BEGIN 7 // from: 8.0 6.1 6.0
   SAY @13 /* ~Have fun trying! Followers, release the dwarfs and allow me to escape!~ #62779 */
-  IF ~~ THEN DO ~StartCutSceneMode()
+  IF ~~ THEN DO ~SetGlobal("AG_Loron_Quest","GLOBAL",15)
+StartCutSceneMode()
 StartCutScene("agcoolco")
 ~ EXIT
 END

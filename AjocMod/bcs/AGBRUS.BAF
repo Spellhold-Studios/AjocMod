@@ -1,10 +1,17 @@
 IF
-	See([PC])
-	Range([PC],30)
-	Global("bungo01see","LOCALS",0)
+	GlobalGT("AG_Loron_Quest","GLOBAL",0)
 THEN
 	RESPONSE #100
-		SetGlobal("bungo01see","LOCALS",1)
+		EscapeArea()
+END
+
+IF
+	See([PC])
+	Range([PC],30)
+	Global("AG_bungo01see","LOCALS",0)
+THEN
+	RESPONSE #100
+		SetGlobal("AG_bungo01see","LOCALS",1)
 		StartDialogueNoSet([PC])
 END
 

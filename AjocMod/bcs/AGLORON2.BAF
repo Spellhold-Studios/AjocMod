@@ -1,10 +1,50 @@
 IF
 	See([PC])
-	Range([PC],30)
-	Global("AGLoronArrived","GLOBAL",1)
+	Global("AG_Loron_Quest","GLOBAL",10)
+	AreaCheck("AG1000")
+	Exists("AGLorf06")
 THEN
 	RESPONSE #100
-		SetGlobal("AGLoronArrived","GLOBAL",2)
 		StartDialogueNoSet([PC])
 END
 
+IF
+	OR(2)
+	 !GlobalTimerNotExpired("AG_LoronStillSLEEP","LOCALS")
+	 Global("AG_LoronSLEEP","LOCALS",0)
+	GlobalGT("AG_Loron_Quest","GLOBAL",14)
+	!Dead("AGBOSS")
+	AreaCheck("AG1500")
+THEN
+	RESPONSE #100
+		SetGlobalTimer("AG_LoronStillSLEEP","LOCALS",ONE_ROUND)
+		SetGlobal("AG_LoronSLEEP","LOCALS",1)
+		SetSequence(SEQ_SLEEP)
+		PlayDead(1000)
+END
+
+IF
+	GlobalGT("AG_Loron_Quest","GLOBAL",14)
+	Global("AG_LoronSLEEP","LOCALS",1)
+	Dead("AGBOSS")
+	AreaCheck("AG1500")
+THEN
+	RESPONSE #100
+		SetGlobal("AG_LoronSLEEP","LOCALS",2)
+		SetSequence(SEQ_AWAKE)
+END
+
+IF
+	Global("AG_Freeze","LOCALS",0)
+	Dead("AGBOSS")
+	AreaCheck("AG1000")
+THEN
+	RESPONSE #100
+		ReallyForceSpell("AGLorf01",DISPEL_NO_SAVE)
+		ReallyForceSpell("AGLorf02",DISPEL_NO_SAVE)
+		ReallyForceSpell("AGLorf06",DISPEL_NO_SAVE)
+		ReallyForceSpell("AGLorf04",DISPEL_NO_SAVE)
+		ReallyForceSpell("AGLorf05",DISPEL_NO_SAVE)
+		ReallyForceSpell("AGLorf06",DISPEL_NO_SAVE)
+		SetGlobal("AG_Freeze","LOCALS",1)
+END

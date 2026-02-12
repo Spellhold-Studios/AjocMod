@@ -3,20 +3,20 @@ IF
 THEN
 	RESPONSE #100
 		CutSceneId("agbadguy")
-		ForceSpell("agloron2",WIZARD_MAGIC_MISSILE)
+		ReallyForceSpell("agloron2",WIZARD_MAGIC_MISSILE)
+		Wait(1)
 		ActionOverride("agloron2",PlayDead(100))
 		Wait(1)
 		MoveToObject("agloron2")
 		Wait(1)
-		ForceSpell("agloron2",DRYAD_TELEPORT)
+		ReallyForceSpell("agloron2",DRYAD_TELEPORT)
 		Wait(1)
 		ActionOverride("agloron2",DestroySelf())
 		Wait(2)
 		DisplayStringHead("agbadguy",27436) // Let's get out of here. We've still got things to do.
 		Wait(1)
-		ForceSpell("agbadguy",DRYAD_TELEPORT)
+		ReallyForceSpell("agbadguy",DRYAD_TELEPORT)
 		Wait(1)
-		EndCutSceneMode()
 		DestroySelf()
 END
 
@@ -26,7 +26,7 @@ THEN
 	RESPONSE #100
 		CutSceneId("agmag01")
 		Wait(13)
-		ForceSpell("agmag01",DRYAD_TELEPORT)
+		ReallyForceSpell("agmag01",DRYAD_TELEPORT)
 		Wait(1)
 		DestroySelf()
 END
@@ -37,7 +37,7 @@ THEN
 	RESPONSE #100
 		CutSceneId("agmag02")
 		Wait(13)
-		ForceSpell("agmag02",DRYAD_TELEPORT)
+		ReallyForceSpell("agmag02",DRYAD_TELEPORT)
 		Wait(1)
 		DestroySelf()
 END
@@ -48,7 +48,7 @@ THEN
 	RESPONSE #100
 		CutSceneId("agmag03")
 		Wait(13)
-		ForceSpell("agmag03",DRYAD_TELEPORT)
+		ReallyForceSpell("agmag03",DRYAD_TELEPORT)
 		Wait(1)
 		DestroySelf()
 END
@@ -59,8 +59,9 @@ THEN
 	RESPONSE #100
 		CutSceneId("agmag04")
 		Wait(13)
-		ForceSpell("agmag04",DRYAD_TELEPORT)
+		ReallyForceSpell("agmag04",DRYAD_TELEPORT)
 		Wait(1)
+		EndCutSceneMode()
 		DestroySelf()
 END
 

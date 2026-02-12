@@ -7,11 +7,19 @@
 @6   = ~Klingt interessant, ich schau mich ein bisschen um. Danke schön.~
 @7   = ~Haha! Ich denke, dass ich diesen armen Narren überfalle und sein Geld dazu verwende, um Gaelans Schulden zu bezahlen.~
 @8   = ~Kein Problem.~
+
+/*
 @9   = ~Ihr begleitet Loron
 
-Brus, ein kleiner Junge aus den Slums, erzählte mir, wenn ich Arbeit und Geld wolle, sollte ich im Regierungsbezirk nach Loron suchen. Augenscheinlich benötigt er die Hilfe einiger Abenteurer, die ihn sicher zurück zu seinem Dorf bringen. Er ist angeblich sehr reich und kann gut zahlen ...  ~
+Brus, ein kleiner Junge aus den Slums, erzählte mir, wenn ich Arbeit und Geld wolle, sollte ich im Regierungsbezirk nach Loron suchen. Augenscheinlich benötigt er die Hilfe einiger Abenteurer, die ihn sicher zurück zu seinem Dorf bringen. Er ist angeblich sehr reich und kann gut zahlen...~
+*/
+
 @10  = ~Urr sicher.~
+
+/*
 @11  = ~Ich Begleite Loron
 
 Brus, ein kleiner Junge aus den Slums, erzählte mir, dass es ein reicher Mann namens Loron ist. Er sagte, dass der Mann einen Begleiter zurück zu seinem Dorf braucht, aber ich überlege, ob ich ihn wegen seines Geldes töte. Weniger Arbeit, mehr Geld.~
+*/
+
 @12  = ~Schön ...~

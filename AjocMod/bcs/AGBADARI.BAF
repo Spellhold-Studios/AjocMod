@@ -8,7 +8,6 @@ THEN
 		CreateCreatureDoor("agmag02",[217.420],0) // Mage
 		CreateCreatureDoor("agmag03",[608.111],0) // Mage
 		CreateCreatureDoor("agmag04",[717.272],0) // Mage
-		Wait(1)
-		EndCutSceneMode()
+		ActionOverride("agbadguy",StartDialogueNoSet([PC]))
 END
 

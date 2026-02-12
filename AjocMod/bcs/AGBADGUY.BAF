@@ -1,36 +1,41 @@
 IF
-	Global("AGVillageHeld","GLOBAL",2)
+	Global("AG_Loron_Quest","GLOBAL",11)
 THEN
 	RESPONSE #100
-		SetGlobal("AGVillageHeld","GLOBAL",3)
 		StartDialogueNoSet([PC])
 END
 
 IF
-	Global("AGCaveVisit","GLOBAL",1)
+	Global("AG_Loron_Quest","GLOBAL",14)
 THEN
 	RESPONSE #100
-		SetGlobal("AGCaveVisit","GLOBAL",2)
 		StartDialogueNoSet([PC])
 END
 
 IF
-	Global("AGVillageHeld","GLOBAL",1)
+	Global("AG_Loron_Quest","GLOBAL",12)
+	Global("AG_VillageHeld","LOCALS",0)
 THEN
 	RESPONSE #100
-		ForceSpell(Myself,AJOC_FREEZE_GLOBAL)
-		ActionOverride("agmag01",ForceSpell(Myself,AJOC_FREEZE_GLOBAL))
-		ActionOverride("agmag02",ForceSpell(Myself,AJOC_FREEZE_GLOBAL))
-		ActionOverride("agmag03",ForceSpell(Myself,AJOC_FREEZE_GLOBAL))
-		ActionOverride("agmag04",ForceSpell(Myself,AJOC_FREEZE_GLOBAL))
-		SetGlobal("AGVillageHeld","GLOBAL",4)
-END
-
-IF
-	Global("AGVillageHeld","GLOBAL",4)
-THEN
-	RESPONSE #100
-		SetGlobal("AGVillageHeld","GLOBAL",4)
+		StartCutSceneMode()
+		ReallyForceSpellRES("AGwi966",Myself)
+		ActionOverride("agmag01",ReallyForceSpellRES("AGwi966",Myself))
+		ActionOverride("agmag02",ReallyForceSpellRES("AGwi966",Myself))
+		ActionOverride("agmag03",ReallyForceSpellRES("AGwi966",Myself))
+		ActionOverride("agmag04",ReallyForceSpellRES("AGwi966",Myself))
+		SetGlobal("AG_VillageHeld","LOCALS",1)
+		SetGlobal("AG_FreezeMe","MYAREA",1)
+		EndCutSceneMode()
+		Wait(2)
 		StartDialogueNoSet([PC])
 END
 
+/*
+IF
+	Global("AG_VillageHeld","LOCALS",1)
+THEN
+	RESPONSE #100
+		SetGlobal("AG_VillageHeld","LOCALS",2)
+		StartDialogueNoSet([PC])
+END
+*/

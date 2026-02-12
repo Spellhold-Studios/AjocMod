@@ -1,14 +1,14 @@
 IF
-	Global("AGFirstTime","AG1700",0)
+	Global("AG_FirstTime","MYAREA",0)
 THEN
 	RESPONSE #100
+		SetGlobal("AG_FirstTime","MYAREA",1)
 		CreateCreature("agmag01",[777.551],2) // Mage
 		CreateCreature("agdispl1",[668.535],4) // Displacer Beast
 		CreateCreature("agdispl2",[850.573],4) // Greater Displacer Beast
 		CreateCreature("agdisp11",[342.860],7) // Displacer Beast
 		CreateCreature("agdisp12",[372.797],5) // Displacer Beast
 		CreateCreature("agdisp13",[865.493],5) // Displacer Beast
-		SetGlobal("AGFirstTime","AG1700",1)
 END
 
 IF

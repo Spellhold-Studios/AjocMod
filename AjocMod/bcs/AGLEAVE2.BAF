@@ -3,16 +3,16 @@ IF
 THEN
 	RESPONSE #100
 		CutSceneId(Player1)
-		Wait(2)
+		Wait(1)
 		FadeFromColor([30.0],0)
-		SetGlobal("AGNoBandits","GLOBAL",1)
 		LeaveAreaLUA("ag0042","GTRSK002",[575.421],12)
 		MultiPlayerSync()
 		SetMasterArea("ag0042")
 		MultiPlayerSync()
 		CreateCreatureObject("agloron",Player1,3,0,0) // Loron
+		MoveViewObject("agloron",INSTANT)
 		Wait(1)
-		SetGlobal("AGLoronJourney","GLOBAL",2)
+		SetGlobal("AG_Loron_Quest","GLOBAL",5)
 		EndCutSceneMode()
 END
 

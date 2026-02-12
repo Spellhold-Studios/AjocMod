@@ -3,6 +3,7 @@ IF
 THEN
 	RESPONSE #100
 		CutSceneId(Player1)
+		Explore()
 		MoveViewPoint([1546.1788],FAST)
 		ActionOverride(Player2,MoveToPoint([1536.1894]))
 		ActionOverride(Player3,MoveToPoint([1472.1944]))
@@ -10,6 +11,8 @@ THEN
 		ActionOverride(Player6,MoveToPoint([1537.2000]))
 		ActionOverride(Player5,MoveToPoint([1465.2000]))
 		MoveToPoint([1480.1887])
+		Wait(2)
+		ActionOverride("AGBOSS",StartDialogueNoSet([PC]))
 		EndCutSceneMode()
 END
 

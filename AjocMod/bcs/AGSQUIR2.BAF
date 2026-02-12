@@ -5,8 +5,8 @@ IF
 	Global("SquirrelFollow","GLOBAL",0)
 THEN
 	RESPONSE #100
-		MoveToObject(LastSeenBy(Myself))
 		SetGlobal("SquirrelFollow","GLOBAL",1)
+		MoveToObject(LastSeenBy(Myself))
 END
 
 IF

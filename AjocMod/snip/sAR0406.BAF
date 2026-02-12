@@ -1,10 +1,11 @@
 IF
 	Global("BrusShow3","GLOBAL",1)
-	Global("AGLoronGov","GLOBAL",0)
+	Global("AG_Loron_Quest","GLOBAL",0)
+	Global("AG_LoronBRUS","MYAREA",0)
 THEN
 	RESPONSE #100
 		CreateCreature("AGBRUS",[1131.1638],8) // Brus
-		SetGlobal("AGLoronGov","GLOBAL",1)
+		SetGlobal("AG_LoronBRUS","MYAREA",1)
 		Continue()
 END
 

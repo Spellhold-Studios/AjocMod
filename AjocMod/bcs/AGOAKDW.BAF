@@ -1,0 +1,10 @@
+IF
+	OR(2)
+		Global("AG_AGOAK_enemy","MYAREA",1)
+		AttackedBy([GOODCUTOFF],DEFAULT)
+	!Allegiance(Myself,ENEMY)
+THEN
+	RESPONSE #100
+		Enemy()
+END
+

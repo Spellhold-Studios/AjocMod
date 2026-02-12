@@ -3,7 +3,7 @@ IF
 THEN
 	RESPONSE #100
 		CutSceneId("ademoth")
-		ForceSpell(Myself,DO_NOTHING)
+		ReallyForceSpell(Myself,DO_NOTHING)
 		CreateVisualEffectObject("SPDIMNDR",Player1)
 		CreateVisualEffectObject("SPDIMNDR",Player2)
 		CreateVisualEffectObject("SPDIMNDR",Player3)

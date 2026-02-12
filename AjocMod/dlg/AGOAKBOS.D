@@ -47,7 +47,7 @@ END
 
 IF ~~ THEN BEGIN 7 // from: 6.0
   SAY @16 /* ~Oh no, we have looked into other options. Brothers, slay them!~ #62900 */
-  IF ~~ THEN EXIT
+  IF ~~ THEN DO ~SetGlobal("AG_AGOAK_enemy","MYAREA",1) Enemy()~  EXIT
 END
 
 IF ~~ THEN BEGIN 8 // from: 0.1

@@ -1,10 +1,32 @@
 IF
 	See([PC])
-	Range([PC],30)
 	Global("AGSquirrelQuest","GLOBAL",0)
+	Global("AG_Hermitfollow","LOCALS",0)
 THEN
 	RESPONSE #100
+		SetGlobal("AG_Hermitfollow","LOCALS",1)
+		SetGlobalTimer("AG_Hermit","LOCALS",ONE_ROUND)
 		StartDialogueNoSet([PC])
+END
+
+IF
+	See([PC])
+	Global("AGSquirrelQuest","GLOBAL",0)
+	!GlobalTimerNotExpired("AG_Hermit","LOCALS")
+THEN
+	RESPONSE #100
+		SetGlobalTimer("AG_Hermit","LOCALS",ONE_ROUND)
+		StartDialogueNoSet([PC])
+END
+
+IF
+	Global("AGSquirrelQuest","GLOBAL",0)
+	Global("AG_Hermitfollow","LOCALS",1)
+	!Range([PC],5)
+THEN
+	RESPONSE #100
+		Wait(1)
+		MoveToObject([PC])
 END
 
 IF

@@ -1,8 +1,12 @@
+/*
+ // Unused
+
 IF
 	OnCreation()
 	Global("AGNoBandits","GLOBAL",0)
 THEN
 	RESPONSE #100
+		SetGlobal("AGNoBandits","GLOBAL",1)
 		CreateCreature("REBAND01",[488.558],10) // Bandit
 		CreateCreature("REBAND02",[500.454],10) // Bandit
 		CreateCreature("REBAND03",[552.476],10) // Bandit
@@ -13,14 +17,14 @@ THEN
 		CreateCreature("TROLL01",[820.176],10) // Troll
 		CreateCreature("TROLL01",[732.539],10) // Troll
 END
+*/
 
 IF
-	Global("AGLoronBandit","GLOBAL",1)
+	Global("AG_LoronBandit","MYAREA",0)
+	Global("AG_Loron_Quest","GLOBAL",5)
 THEN
 	RESPONSE #100
-		SetGlobal("AGLoronJourney","GLOBAL",3)
-		SetGlobal("AGLoronBandit","GLOBAL",0)
-		SetGlobal("AGLoronFight","GLOBAL",1)
+		SetGlobal("AG_LoronBandit","MYAREA",1)
 		CreateCreature("AGBANDLE",[636.223],3)
 		CreateCreature("AGBAND01",[347.368],13)
 		CreateCreature("AGBAND02",[316.443],13)
@@ -30,7 +34,7 @@ THEN
 END
 
 IF
-	Global("AGLoronTalks","GLOBAL",0)
+	Global("AG_LoronTalks","MYAREA",0)
 	Dead("agbandle")
 	Dead("agband01")
 	Dead("agband02")
@@ -40,8 +44,8 @@ IF
 THEN
 	RESPONSE #100
 		Wait(2)
-		SetGlobal("AGBanditsDead","GLOBAL",6)
-		SetGlobal("AGLoronTalks","GLOBAL",1)
+		SetGlobal("AG_Loron_Quest","GLOBAL",7)
+		SetGlobal("AG_LoronTalks","MYAREA",1)
 		Continue()
 END
 

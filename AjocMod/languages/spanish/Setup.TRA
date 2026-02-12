@@ -56,7 +56,7 @@ Peso: 6
 Factor de velocidad: 4
 Talento marcial: Katana
 Tipo: una mano
-No permitido a:
+No utilizable por:
  Druidas
  Magos
  Clérigos
@@ -164,7 +164,7 @@ Factor de velocidad: 2
 Tipo de talento: Daga
 Tipo: 1 mano
 Requiere: Fuerza 3
-No lo puede usar:
+No utilizable por:
 Clérigo~
 @43   = ~Daga de retorno +3:
 

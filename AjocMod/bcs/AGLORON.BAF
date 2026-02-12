@@ -1,7 +1,6 @@
 IF
-	See([PC])
-	Range([PC],30)
-	Global("AGLoronJourney","GLOBAL",2)
+	See([EVILCUTOFF])
+	Global("AG_Loron_Quest","GLOBAL",5)
 THEN
 	RESPONSE #100
 		StartDialogueNoSet([PC])
@@ -9,10 +8,26 @@ END
 
 IF
 	See([PC])
-	Range([PC],30)
-	Global("AGLoronArrived","GLOBAL",1)
+	Global("AG_Loron_Quest","GLOBAL",10)
 THEN
 	RESPONSE #100
+		StartDialogueNoSet([PC])
+END
+
+IF
+	Global("AG_Loron_Quest","GLOBAL",7)
+THEN
+	RESPONSE #100
+		SetGlobal("AG_Loron_Quest","GLOBAL",8)
+		MoveToObject(Player1)
+END
+
+IF
+	See([PC])
+	Global("AG_Loron_Quest","GLOBAL",8)
+THEN
+	RESPONSE #100
+//		SetGlobal("AGRunAway","GLOBAL",0) (unused)
 		StartDialogueNoSet([PC])
 END
 
@@ -21,7 +36,7 @@ IF
 	Allegiance(Myself,NEUTRAL)
 THEN
 	RESPONSE #100
-		SetGlobal("AGLoronAttack","GLOBAL",1)
+		SetGlobal("AGLoronAttack","LOCALS",1)
 		EscapeArea()
 END
 
@@ -30,7 +45,7 @@ IF
 	Allegiance(Myself,NEUTRAL)
 THEN
 	RESPONSE #100
-		SetGlobal("AGLoronAttack","GLOBAL",1)
+		SetGlobal("AGLoronAttack","LOCALS",1)
 		EscapeArea()
 END
 
@@ -39,7 +54,7 @@ IF
 	Allegiance(Myself,NEUTRAL)
 THEN
 	RESPONSE #100
-		SetGlobal("AGLoronAttack","GLOBAL",1)
+		SetGlobal("AGLoronAttack","LOCALS",1)
 		EscapeArea()
 END
 
@@ -48,7 +63,7 @@ IF
 	Allegiance(Myself,NEUTRAL)
 THEN
 	RESPONSE #100
-		SetGlobal("AGLoronAttack","GLOBAL",1)
+		SetGlobal("AGLoronAttack","LOCALS",1)
 		EscapeArea()
 END
 
@@ -57,7 +72,7 @@ IF
 	Allegiance(Myself,NEUTRAL)
 THEN
 	RESPONSE #100
-		SetGlobal("AGLoronAttack","GLOBAL",1)
+		SetGlobal("AGLoronAttack","LOCALS",1)
 		EscapeArea()
 END
 
@@ -66,27 +81,10 @@ IF
 	Allegiance(Myself,NEUTRAL)
 THEN
 	RESPONSE #100
-		SetGlobal("AGLoronAttack","GLOBAL",1)
+		SetGlobal("AGLoronAttack","LOCALS",1)
 		EscapeArea()
 END
 
-IF
-	Global("AGBanditsDead","GLOBAL",6)
-THEN
-	RESPONSE #100
-		SetGlobal("AGBanditsDead","GLOBAL",7)
-		MoveToObject(Player1)
-END
-
-IF
-	See([PC])
-	Range([PC],30)
-	Global("AGBanditsDead","GLOBAL",7)
-THEN
-	RESPONSE #100
-		SetGlobal("AGRunAway","GLOBAL",0)
-		StartDialogueNoSet([PC])
-END
 
 IF
 	See(NearestEnemyOf([PC]))

@@ -1,9 +1,18 @@
 IF
-	Global("AGVillageHeld","GLOBAL",4)
-	!Global("AGFreezeMe","LOCALS",1)
+	Global("AG_FreezeMe","MYAREA",1) 
+	Global("AG_Freeze","LOCALS",0) 
 THEN
 	RESPONSE #100
+		ReallyForceSpell(Myself,HOLD_PERSON_NO_SAVE)
 		CreateVisualEffectObject("MINORGLB",Myself)
-		SetGlobal("AGFreezeMe","LOCALS",1)
+		SetGlobal("AG_Freeze","LOCALS",1)
 END
 
+IF
+	Dead("AGBOSS")
+	Global("AG_Freeze","LOCALS",1)
+THEN
+	RESPONSE #100
+		ReallyForceSpell(Myself,DISPEL_NO_SAVE)
+		SetGlobal("AG_Freeze","LOCALS",2)
+END

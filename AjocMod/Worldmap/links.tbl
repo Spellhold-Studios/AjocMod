@@ -1,0 +1,5 @@
+SRC_AREA  SRC_NWSE  TARGET_ARE  ENTRY_NAME  TRV_TIME  DEF_ENTRY  ENC1     ENC2     ENC3     ENC4     ENC5     ENC_PROB
+
+AR0020    N         AG1000      Shrine         24        4        N        N        N        N        N          0
+AG1000    N         AR0020      ExitNE        24        4        N        N        N        N        N          0
+

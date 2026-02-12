@@ -1,15 +1,31 @@
 IF
-	Global("AG1000FirstVisit","GLOBAL",0)
+	OnCreation()
+	Global("AG_1000FirstVisit","MYAREA",0)
 THEN
 	RESPONSE #100
+		Explore()
+		SetGlobal("AG_1000FirstVisit","MYAREA",1)
 		CreateCreature("AGLorf01",[460.168],0) // Mage
-		CreateCreature("AGLorf02",[461.219],4) // Mage
+		CreateCreature("AGLorf02",[540.195],4) // Mage
 		CreateCreature("AGLorf03",[564.318],7) // Mage
-		CreateCreature("AGLorf04",[407.318],10) // Mage
-		CreateCreature("AGLorf05",[288.256],12) // Mage
-		CreateCreature("AGLorf06",[297.217],14) // Mage
-		SetGlobal("AG1000FirstVisit","GLOBAL",1)
+		CreateCreature("AGLorf04",[340.415],10) // Mage
+		CreateCreature("AGLorf05",[353.102],12) // Mage
+		CreateCreature("AGLorf06",[517.621],14) // Mage
+		FadeFromColor([20.0],0)
 END
+
+IF
+	Dead("AGBOSS")
+	Global("AG_Loronisback","MYAREA",0)
+THEN
+	RESPONSE #100
+		SetGlobal("AG_Loronisback","MYAREA",1)
+		CreateCreature("agloron2",[371.245],3) // Loron
+END
+
+
+/*
+Unused
 
 IF
 	Global("AGRandomItem","GLOBAL",0)
@@ -26,3 +42,4 @@ THEN
 		SetGlobal("AGRandomItem","GLOBAL",5)
 END
 
+*/

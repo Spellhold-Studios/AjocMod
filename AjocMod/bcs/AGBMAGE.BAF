@@ -4,13 +4,15 @@ IF
 	Global("MagicMissile","LOCALS",0)
 THEN
 	RESPONSE #100
-		Spell(NearestEnemyOf(Myself),WIZARD_MAGIC_MISSILE)
+		ReallyForceSpell(NearestEnemyOf(Myself),WIZARD_MAGIC_MISSILE)
 		SetGlobal("MagicMissile","LOCALS",1)
 		SetGlobalTimer("MagicMissile1","LOCALS",30)
 END
 
 IF
-	GlobalTimerNotExpired("MagicMissile1","LOCALS")
+	OR(2)
+		!HaveSpell(WIZARD_MAGIC_MISSILE)
+		GlobalTimerNotExpired("MagicMissile1","LOCALS")
 	See(NearestEnemyOf(Myself))
 THEN
 	RESPONSE #100
@@ -18,12 +20,34 @@ THEN
 END
 
 IF
-	GlobalTimerExpired("MagicMissile1","LOCALS")
+	!GlobalTimerNotExpired("MagicMissile1","LOCALS")
 	HaveSpell(WIZARD_MAGIC_MISSILE)
 	See(NearestEnemyOf(Myself))
 THEN
 	RESPONSE #100
 		SetGlobalTimer("MagicMissile1","LOCALS",30)
-		Spell(NearestEnemyOf(Myself),WIZARD_MAGIC_MISSILE)
+		ReallyForceSpell(NearestEnemyOf(Myself),WIZARD_MAGIC_MISSILE)
+END
+
+IF
+	AttackedBy([GOODCUTOFF],DEFAULT)
+	Allegiance(Myself,NEUTRAL)
+THEN
+	RESPONSE #100
+		Enemy()
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+THEN
+	RESPONSE #100
+		AttackReevaluate(NearestEnemyOf(Myself),30)
+END
+
+IF
+	AttackedBy([ANYONE],DEFAULT)
+THEN
+	RESPONSE #100
+		Attack(LastAttackerOf(Myself))
 END
 

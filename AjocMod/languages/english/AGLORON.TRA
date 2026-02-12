@@ -4,16 +4,24 @@
 @3   = ~Of course, lets get going.~
 @4   = ~Ah! Die! I need your money!~
 @5   = ~Oh no, not MORE bandits!~
+
+/*
 @6   = ~Escorting Loron
 
 I tried to kill Loron, but he did a runner. I guess if I still want his money I'll have to pay a visit to his village, which Brus pointed out to me. c~
+*/
+
 @7   = ~<NO TEXT>~
 @8   = ~Thank you, I appreciate it very much. As gold is not a problem for me, your payment will be sufficient.~
 @9   = ~When do we set off?~
 @10  = ~Meet me at the City Gates. Buy any supplies you may need first and we can be off. Once again, I thank you.~
+
+/*
 @11  = ~Escorting Loron
 
 I accepted to take Loron back to his village, and he offered a decent reward, which will help me pay for Gaelan's fee. He said to meet him at the City Gates.~
+*/
+
 @12  = ~Good to see you made it! I was getting nervous on my own.~
 @13  = ~Sorry for any wait you had.~
 @14  = ~Ok, lets begin our journey. I can't wait to leave this city.~
@@ -29,9 +37,13 @@ I accepted to take Loron back to his village, and he offered a decent reward, wh
 @24  = ~Tell me when your ready to move on. I don't want to have to hang around here for more than necessary. Don't leave without me, or else I'll be lost here and I'll make certain you get no reward.~
 @25  = ~You ready to go to Adilthora yet?~
 @26  = ~Let me just finish with these bandit corpses.~
+
+/*
 @27  = ~Escorting Loron
 
 We had a little trouble with bandits, but they were not too hard to deal with. R~
+*/
+
 @28  = ~Ok, let's go.~
 @29  = ~Ah, we finally made it. I thank you greatly. May we meet again.~
 @30  = ~No problem, bye.~

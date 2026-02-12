@@ -2,7 +2,7 @@ IF
 	Global("Anarchy","LOCALS",1)
 THEN
 	RESPONSE #100
-		ForceSpell(Myself,DRYAD_TELEPORT)
+		ReallyForceSpell(Myself,DRYAD_TELEPORT)
 		Wait(1)
 		SetGlobal("Anarchy","AG1700",2)
 		DestroySelf()
