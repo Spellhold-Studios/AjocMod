@@ -2,8 +2,8 @@
 [![Published](https://img.shields.io/github/release-date-pre/Spellhold-Studios/AjocMod?display_date=published_at&label=published&color=%2392403a)](https://github.com/Spellhold-Studios/AjocMod/releases/latest)
 [![Downloads](https://img.shields.io/github/downloads/Spellhold-Studios/AjocMod/total?color=%2392403a)](https://github.com/Spellhold-Studios/AjocMod/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%a0%20macOS%20%a0%20Linux-%2392403a)](https://github.com/Spellhold-Studios/AjocMod/releases)
-[![Games](https://img.shields.io/badge/games-BG2%20%a0%20BGT-%2392403a)](https://github.com/Spellhold-Studios/AjocMod/releases)
-[![Language](https://img.shields.io/badge/language-en%20%a0%20de%20%a0%20es%20%a0%20it%20%a0%20ru%20%a0%20sc-%2392403a)](https://github.com/Spellhold-Studios/AjocMod/releases)
+[![Games](https://img.shields.io/badge/games-BG2%20%a0%20BGT%20%a0%20BG2%3AEE%20%a0%20EET-%2392403a)](https://github.com/Spellhold-Studios/AjocMod/releases)
+[![Language](https://img.shields.io/badge/language-en%20%a0%20de%20%a0%20es%20%a0%20it%20%a0%20ru%20%a0%20zh--CN-%2392403a)](https://github.com/Spellhold-Studios/AjocMod/releases)
 
 <!--
 Badges white space separator: %20%a0%20
@@ -28,7 +28,7 @@ Why some badges update slowly: https://github.com/pujux/badge-it/issues/78
 <br>
 
 [<img alt="Download" src="https://raw.githubusercontent.com/Spellhold-Studios/Spellhold-Studios.github.io/main/assets/buttons/download.svg" height="28">](https://github.com/Spellhold-Studios/AjocMod/releases/latest)&nbsp;
-[<img alt="Readme" src="https://raw.githubusercontent.com/Spellhold-Studios/Spellhold-Studios.github.io/main/assets/buttons/readme.svg" height="28">](https://spellhold-studios.github.io/readmes/ajocmod/ajocmod-readme.txt)&nbsp;
+[<img alt="Readme" src="https://raw.githubusercontent.com/Spellhold-Studios/Spellhold-Studios.github.io/main/assets/buttons/readme.svg" height="28">](https://spellhold-studios.github.io/readmes/ajocmod/AjocMod-Readme.txt)&nbsp;
 [<img alt="Webpage" src="https://raw.githubusercontent.com/Spellhold-Studios/Spellhold-Studios.github.io/main/assets/buttons/webpage.svg" height="28">](https://spellhold-studios.github.io/)&nbsp;
 [<img alt="Discord" src="https://raw.githubusercontent.com/Spellhold-Studios/Spellhold-Studios.github.io/main/assets/buttons/discord-blue.svg" height="28">](https://discord.gg/pE2Njbdb2a)
 
@@ -38,7 +38,7 @@ This is an old mod that adds a medium-sized quest to Shadows of Amn, along with 
 
 While Ajoc's Minimod originally required The Darkest Day mega-mod, this version can be installed separately.
 
-*Please check the complete [Readme](https://spellhold-studios.github.io/readmes/ajocmod/ajocmod-readme.txt) to learn more about this mod before installation.*
+*Please check the complete [Readme](https://spellhold-studios.github.io/readmes/ajocmod/AjocMod-Readme.txt) to learn more about this mod before installation.*
 
 ## Key features
 
@@ -67,11 +67,11 @@ While Ajoc's Minimod originally required The Darkest Day mega-mod, this version 
 
 **Translators**  
 
+- **Chinese (Simplified)**:&nbsp; MephistoSatanDevil
 - **German**:&nbsp; Rumpelstilz
 - **Italian**:&nbsp; Ilot
 - **Russian**:&nbsp; Brodiaga, Alex, AERIE.RU
 - **Spanish**:&nbsp; Clan REO
-- **Simplified Chinese**:&nbsp; MephistoSatanDevil
 
 **Special thanks**  
 
@@ -125,7 +125,7 @@ v1.6.5 (05 April 2010 by Leomar)
 
 v1.6.4 (01 April 2010 by Leomar)
 - Lollorian's lightning and demons typo fixes - AGCOOLCO.BAF, AGDEMDIE.BAF
-  (http://www.shsforums.net/topic/42220-fixes-for-the-big-fixpack/page__view__findpost__p__482735)
+  (https://www.shsforums.net/topic/42220-fixes-for-the-big-fixpack/#entry482735)
 - Moved TP2 into the mod folder
 - Updated to WeiDU v215
 
